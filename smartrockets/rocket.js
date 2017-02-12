@@ -96,9 +96,9 @@ function Rocket(rocketWidth) {
 		var d = dist(this.pos.x, this.pos.y, target.x, target.y);
 		this.fitness = 1 / (d + 1);
 		if (this.dead) {
-			this.fitness *= 0.1;
+			this.fitness *= map(this.timer, 0, lifespan, 0.05, 0.1);
 		} else if (this.completed) {
-			this.fitness *= map(this.timer, 0, 200, 20, 10);
+			this.fitness *= map(this.timer, 0, lifespan, 20, 10);
 			
 		}
 	}
