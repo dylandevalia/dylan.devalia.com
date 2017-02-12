@@ -1,5 +1,5 @@
 var population;
-var lifespan = 1000;
+var lifespan = 2000;
 var dnaCounter = 0;
 var target;
 var obstacle, oWidth, oHeight;
@@ -9,7 +9,7 @@ var obstacle, oWidth, oHeight;
  */
 function setup() {
 	createCanvas(innerWidth, innerHeight);
-	population = new Population(25);
+	population = new Population(50);
 	target = createVector(width / 2, height * 0.1); // Middle and 10% down
 	obstacle = createVector(width / 2, height / 2);
 	oWidth = width / 3;
@@ -62,7 +62,10 @@ function mouseDragged() {
 			target.x = mouseX;
 			target.y = mouseY;
 		}
-		if (dist(mouseX, mouseY, obstacle.x - oWidth, obstacle.y + oHeight)) {
+		if (
+			(mouseX > obstacle.x - oWidth / 2 && mouseX < obstacle.x + oWidth / 2) &&
+			(mouseY > obstacle.y - oHeight / 2 && mouseY < obstacle.y + oHeight / 2)
+		) {
 			obstacle.x = mouseX;
 			obstacle.y = mouseY;
 		}
