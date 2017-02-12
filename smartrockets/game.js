@@ -36,16 +36,16 @@ function draw() {
 	rect(obstacle.x - oWidth / 2, obstacle.y - oHeight / 2, oWidth, oHeight);
 	
 	/* Check if any rockets are still alive */
-	var allDead = true;
+	var allFinished = true;
 	for (var i = 0; i < population.rockets.length; i++) {
-		if (!population.rockets[i].dead) {
-			allDead = false;
+		if (!population.rockets[i].dead && !population.rockets[i].completed) {
+			allFinished = false;
 			break;
 		}
 	}
 	
 	/* If all rockets are dead or have reached lifespan generate new genes */
-	if (allDead || lifespan == dnaCounter) {
+	if (allFinished || lifespan == dnaCounter) {
 		population.evalFitness();
 		population.naturalSelection();
 		dnaCounter = 0;
