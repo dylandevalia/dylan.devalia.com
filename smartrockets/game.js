@@ -1,7 +1,8 @@
 var population;
-var lifespan = 500;
+var lifespan = 1000;
 var dnaCounter = 0;
 var target;
+var obstacle, oWidth, oHeight;
 
 /**
  *  Creates canvas and objects
@@ -10,6 +11,9 @@ function setup() {
 	createCanvas(innerWidth, innerHeight);
 	population = new Population(25);
 	target = createVector(width / 2, height * 0.1); // Middle and 10% down
+	obstacle = createVector(width / 2, height / 2);
+	oWidth = width / 3;
+	oHeight = 20;
 }
 
 /**
@@ -26,6 +30,10 @@ function draw() {
 	ellipse(target.x, target.y, 32, 32);
 	fill(244, 67, 54);
 	ellipse(target.x, target.y, 16, 16);
+	
+	/* Draw obstacle */
+	fill(3, 169, 244);
+	rect(obstacle.x - oWidth / 2, obstacle.y - oHeight / 2, oWidth, oHeight);
 	
 	/* Check if any rockets are still alive */
 	var allDead = true;
@@ -48,9 +56,15 @@ function draw() {
 	dnaCounter++;
 }
 
-function mousePressed() {
+function mouseDragged() {
 	if (mouseButton == LEFT) {
-		target.x = mouseX;
-		target.y = mouseY;
+		if (dist(mouseX, mouseY, target.x, target.y) < 24) {
+			target.x = mouseX;
+			target.y = mouseY;
+		}
+		if (dist(mouseX, mouseY, obstacle.x - oWidth, obstacle.y + oHeight)) {
+			obstacle.x = mouseX;
+			obstacle.y = mouseY;
+		}
 	}
 }

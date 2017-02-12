@@ -45,9 +45,14 @@ function Rocket(rocketWidth) {
 			}
 		}
 		
-		if (dist(this.pos.x, this.pos.y, target.x, target.y) < 32) {
+		if (dist(this.pos.x, this.pos.y, target.x, target.y) < 16) {                                // Hit target
 			this.completed = 1;
-		} else if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) {
+		} else if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) { // Out of bounds
+			this.dead = 1;
+		} else if (
+			(this.pos.x > obstacle.x - oWidth / 2 && this.pos.x < obstacle.x + oWidth / 2) &&
+			(this.pos.y > obstacle.y - oHeight / 2 && this.pos.y < obstacle.y + oHeight / 2)
+		) {
 			this.dead = 1;
 		} else {
 			this.applyForce(this.dna.genes[dnaCounter]);
@@ -68,7 +73,7 @@ function Rocket(rocketWidth) {
 		push();
 		translate(this.pos.x, this.pos.y);
 		rotate(this.vel.heading() - PI / 2);    // Rotated 90* for some reason
-		fill(238, 238, 238, 100)
+		fill(238, 238, 238, 100);
 		triangle(-rocketWidth / 2, 0, rocketWidth / 2, 0, 0, rocketWidth * 1.618);
 		pop();
 	}
