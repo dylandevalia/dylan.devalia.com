@@ -51,10 +51,10 @@ function Rocket(rocketWidth) {
 			this.dead = 1;
 		} else if (
 			(this.pos.x > obstacle.x - oWidth / 2 && this.pos.x < obstacle.x + oWidth / 2) &&
-			(this.pos.y > obstacle.y - oHeight / 2 && this.pos.y < obstacle.y + oHeight / 2)
+			(this.pos.y > obstacle.y - oHeight / 2 && this.pos.y < obstacle.y + oHeight / 2)        // Hit obstacle
 		) {
 			this.dead = 1;
-		} else {
+		} else if (!this.dead && !this.completed) {
 			this.applyForce(this.dna.genes[dnaCounter]);
 			
 			this.vel.add(this.acc);
