@@ -28,3 +28,7 @@ function mousePressed() {
 		}
 	}
 }
+
+function windowResized() {
+	resizeCanvas(innerWidth, innerHeight);
+}
