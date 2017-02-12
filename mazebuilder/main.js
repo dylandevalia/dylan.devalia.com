@@ -1,6 +1,6 @@
 var scl = 50;
-var cols = Math.floor(350 / scl);
-var rows = Math.floor(200 / scl);
+var cols = Math.floor(innerWidth / scl);
+var rows = Math.floor(innerHeight / scl);
 
 var grid = [];
 var current;
