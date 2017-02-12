@@ -1,6 +1,6 @@
 var state;
 
-var scl = 50;
+var scl = 20;
 // var gridSize = Math.min(Math.floor(innerWidth / scl), Math.floor(innerHeight / scl));
 var w = Math.floor(innerWidth / scl);
 var h = Math.floor(innerHeight / scl);

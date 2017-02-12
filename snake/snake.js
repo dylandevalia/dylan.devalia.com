@@ -19,7 +19,7 @@ function Snake() {
 		
 		/* Update position */
 		if (this.dirBuffer.length > 0) {
-			this.speed = this.dirBuffer.pop().copy();
+			this.speed = this.dirBuffer.shift().copy();
 		}
 		this.pos.add(this.speed.setMag(scl));
 		this.pos.x = constrain(this.pos.x, 0, width - scl);
@@ -60,7 +60,7 @@ function Snake() {
 			food.eaten(this);
 			this.length++;
 			if (counter > 2) {
-				// counter--;
+				counter--;
 			}
 		}
 	}
