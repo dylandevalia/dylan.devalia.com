@@ -37,7 +37,9 @@ function Rocket(rocketWidth) {
 	 *  Also determines if it is alive and completed its goal (you pass butter)
 	 */
 	this.update = function() {
-		if (!this.dead && frameCount % this.trailDelay == 0) {
+		if (!this.dead && !this.completed &&
+			frameCount % this.trailDelay == 0
+		) {
 			this.trails[this.trailCount].setPos(this.pos.copy());
 			this.trails[this.trailCount++].iteration = 0;
 			if (this.trailCount >= 5) {
@@ -99,7 +101,6 @@ function Rocket(rocketWidth) {
 			this.fitness *= map(this.timer, 0, lifespan, 0.05, 0.1);
 		} else if (this.completed) {
 			this.fitness *= map(this.timer, 0, lifespan, 20, 10);
-			
 		}
 	}
 	

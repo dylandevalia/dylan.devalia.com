@@ -4,6 +4,9 @@ var dnaCounter = 0;
 var target;
 var obstacle, oWidth, oHeight;
 
+var moveTarget = false;
+var moveObstacle = false;
+
 /**
  *  Creates canvas and objects
  */
@@ -56,18 +59,35 @@ function draw() {
 	dnaCounter++;
 }
 
-function mouseDragged() {
+function mousePressed() {
 	if (mouseButton == LEFT) {
 		if (dist(mouseX, mouseY, target.x, target.y) < 24) {
-			target.x = mouseX;
-			target.y = mouseY;
-		}
-		if (
+			moveTarget = true;
+		} else if (
 			(mouseX > obstacle.x - oWidth / 2 && mouseX < obstacle.x + oWidth / 2) &&
 			(mouseY > obstacle.y - oHeight / 2 && mouseY < obstacle.y + oHeight / 2)
 		) {
+			moveObstacle = true;
+		}
+	}
+}
+
+function mouseDragged() {
+	if (mouseButton == LEFT) {
+		if (moveTarget) {
+			target.x = mouseX;
+			target.y = mouseY;
+		}
+		if (moveObstacle) {
 			obstacle.x = mouseX;
 			obstacle.y = mouseY;
 		}
+	}
+}
+
+function mouseReleased() {
+	if (mouseButton == LEFT) {
+		moveTarget = false;
+		moveObstacle = false;
 	}
 }

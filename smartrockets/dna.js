@@ -46,7 +46,7 @@ function DNA(genes) {
 	 */
 	this.mutation = function(genes) {
 		for (var i = 0; i < genes.length; i++) {
-			if (random(1) < 0.001) { // 0.1% to randomly mutate a new thrust
+			if (random(1) < 0.001) { // 0.01% to randomly mutate a new thrust
 				genes[i] = p5.Vector.random2D().setMag(0.1);
 			}
 		}
