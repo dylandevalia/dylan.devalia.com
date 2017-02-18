@@ -47,14 +47,16 @@ function Rocket(rocketWidth) {
 			}
 		}
 		
+		for (var i = 0; i < obstacles.length; i++) {
+			if (obstacles[i].hit(this.pos.x, this.pos.y)) {
+				this.dead = true;
+				break;
+			}
+		}
+		
 		if (dist(this.pos.x, this.pos.y, target.x, target.y) < 16) {                                // Hit target
 			this.completed = 1;
 		} else if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) { // Out of bounds
-			this.dead = 1;
-		} else if (
-			(this.pos.x > obstacle.x - oWidth / 2 && this.pos.x < obstacle.x + oWidth / 2) &&
-			(this.pos.y > obstacle.y - oHeight / 2 && this.pos.y < obstacle.y + oHeight / 2)        // Hit obstacle
-		) {
 			this.dead = 1;
 		} else if (!this.dead && !this.completed) {
 			this.applyForce(this.dna.genes[dnaCounter]);

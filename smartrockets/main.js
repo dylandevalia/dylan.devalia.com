@@ -2,21 +2,22 @@ var population;
 var lifespan = 2000;
 var dnaCounter = 0;
 var target;
-var obstacle, oWidth, oHeight;
+var obstacles = [];
 
 var moveTarget = false;
-var moveObstacle = false;
 
 /**
  *  Creates canvas and objects
  */
 function setup() {
 	createCanvas(innerWidth, innerHeight);
+	
 	population = new Population(50);
 	target = createVector(width / 2, height * 0.1); // Middle and 10% down
-	obstacle = createVector(width / 2, height / 2);
-	oWidth = width / 3;
-	oHeight = 20;
+	// obstacle = createVector(width / 2, height / 2);
+	obstacles.push(new Obstacle(createVector(width / 2, height / 2), width / 3, height * 0.05));
+	// oWidth = width / 3;
+	// oHeight = 20;
 }
 
 /**
@@ -26,6 +27,14 @@ function draw() {
 	background(66);
 	noStroke();
 	
+	/* Draw obstacle */
+	for (var i = 0; i < obstacles.length; i++) {
+		obstacles[i].show();
+	}
+	if (newObstacle) {
+		newObstacle.show();
+	}
+	
 	/*Draw target*/
 	fill(244, 67, 54);
 	ellipse(target.x, target.y, 48, 48);
@@ -33,10 +42,6 @@ function draw() {
 	ellipse(target.x, target.y, 32, 32);
 	fill(244, 67, 54);
 	ellipse(target.x, target.y, 16, 16);
-	
-	/* Draw obstacle */
-	fill(3, 169, 244);
-	rect(obstacle.x - oWidth / 2, obstacle.y - oHeight / 2, oWidth, oHeight);
 	
 	/* Check if any rockets are still alive */
 	var allFinished = true;
@@ -59,15 +64,28 @@ function draw() {
 	dnaCounter++;
 }
 
+var newObstacle;
+
 function mousePressed() {
 	if (mouseButton == LEFT) {
 		if (dist(mouseX, mouseY, target.x, target.y) < 24) {
 			moveTarget = true;
-		} else if (
-			(mouseX > obstacle.x - oWidth / 2 && mouseX < obstacle.x + oWidth / 2) &&
-			(mouseY > obstacle.y - oHeight / 2 && mouseY < obstacle.y + oHeight / 2)
-		) {
-			moveObstacle = true;
+		} else {
+			for (var i = 0; i < obstacles.length; i++) {
+				if (obstacles[i].hit(mouseX, mouseY)) {
+					obstacles[i].move = true;
+					break;
+				}
+			}
+		}
+	} else if (mouseButton == RIGHT) {
+		newObstacle = new Obstacle(createVector(mouseX, mouseY), 10, 10, true);
+	} else if (mouseButton == CENTER) {
+		for (var i = 0; i < obstacles.length; i++) {
+			if (obstacles[i].hit(mouseX, mouseY)) {
+				obstacles.splice(i, 1);
+				break;
+			}
 		}
 	}
 }
@@ -78,16 +96,25 @@ function mouseDragged() {
 			target.x = mouseX;
 			target.y = mouseY;
 		}
-		if (moveObstacle) {
-			obstacle.x = mouseX;
-			obstacle.y = mouseY;
+		for (var i = 0; i < obstacles.length; i++) {
+			if (obstacles[i].move) {
+				obstacles[i].pos.x = mouseX;
+				obstacles[i].pos.y = mouseY;
+			}
 		}
+	} else if (mouseButton == RIGHT) {
+		newObstacle.w = mouseX - newObstacle.pos.x;
+		newObstacle.h = mouseY - newObstacle.pos.y;
 	}
 }
 
 function mouseReleased() {
 	if (mouseButton == LEFT) {
 		moveTarget = false;
-		moveObstacle = false;
+		for (var i = 0; i < obstacles.length; i++) {
+			obstacles[i].move = false;
+		}
+	} else if (mouseButton == RIGHT) {
+		obstacles.push(newObstacle.finish());
 	}
 }
