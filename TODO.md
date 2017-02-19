@@ -10,6 +10,7 @@
 
 ##Misc:
 - Snake -> 2D array?
+- Snake -> Change pellet spawning to free tile
 - Maze builder -> 2D array
 - Maze builder -> maze solver?
 - Material colour library
