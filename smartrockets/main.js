@@ -115,6 +115,9 @@ function mouseReleased() {
 			obstacles[i].move = false;
 		}
 	} else if (mouseButton == RIGHT) {
-		obstacles.push(newObstacle.finish());
+		var o = newObstacle.finish();
+		if (o) {
+			obstacles.push(o);
+		}
 	}
 }

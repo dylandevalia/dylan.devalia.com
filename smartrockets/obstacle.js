@@ -24,10 +24,14 @@ function Obstacle(pos, w, h, create) {
 	}
 	
 	this.finish = function() {
-		var o = new Obstacle(
-			createVector(this.pos.x + this.w / 2, this.pos.y + this.h / 2),
-			abs(this.w), abs(this.h)
-		);
+		if (abs(this.w) > 10 && abs(this.h) > 10) {
+			var o = new Obstacle(
+				createVector(this.pos.x + this.w / 2, this.pos.y + this.h / 2),
+				abs(this.w), abs(this.h)
+			);
+		} else {
+			var o = null;
+		}
 		this.w = 0;
 		this.h = 0;
 		return o;
