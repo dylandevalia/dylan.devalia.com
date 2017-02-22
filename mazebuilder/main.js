@@ -12,7 +12,9 @@ var GRID_LEFT = 1;
 var GRID_BOTTOM = 2;
 var GRID_RIGHT = 3;
 
-var rnd;
+var cellColor = Color.Material.getRandomColor();
+var showActive = true;
+var showStack = false;
 
 function setup() {
 	createCanvas(cols * scl, rows * scl);
@@ -24,8 +26,8 @@ function setup() {
 	}
 	
 	current = grid[0];
-	current.visited = true;
-	current.active = true;
+	current.beenVisited = true;
+	current.isActive = true;
 	rnd = floor(random(16));
 }
 
@@ -38,19 +40,21 @@ function draw() {
 	
 	var next = current.checkNeighbours();
 	if (next) {
-		next.visited = true;
+		next.beenVisited = true;
+		current.onStack = true;
 		stack.push(current);
 		removeWalls(current, next);
 		
-		current.active = false;
+		current.isActive = false;
 		current = next;
-		current.active = true;
+		current.isActive = true;
 	} else if (stack.length > 0) {
-		current.active = false;
+		current.isActive = false;
 		current = stack.pop();
-		current.active = true;
+		current.onStack = false;
+		current.isActive = true;
 	} else {
-		current.active = false;
+		current.isActive = false;
 		current.show();
 		noLoop();
 	}
@@ -85,108 +89,10 @@ function index(i, j) {
 	return i + j * cols;
 }
 
-function fillColour(state) {
-	if (state == "visited") {
-		switch (rnd) {
-			case 0:
-				fill(255, 87, 34);
-				break;
-			case 1:
-				fill(244, 67, 54);
-				break;
-			case 2:
-				fill(233, 30, 99);
-				break;
-			case 3:
-				fill(156, 39, 176);
-				break;
-			case 4:
-				fill(103, 58, 183);
-				break;
-			case 5:
-				fill(63, 81, 181);
-				break;
-			case 6:
-				fill(33, 150, 243);
-				break;
-			case 7:
-				fill(3, 169, 244);
-				break;
-			case 8:
-				fill(0, 188, 212);
-				break;
-			case 9:
-				fill(0, 150, 136);
-				break;
-			case 10:
-				fill(76, 175, 80);
-				break;
-			case 11:
-				fill(139, 195, 74);
-				break;
-			case 12:
-				fill(205, 220, 57);
-				break;
-			case 13:
-				fill(255, 235, 59);
-				break;
-			case 14:
-				fill(255, 193, 7);
-				break;
-			case 15:
-				fill(255, 152, 0);
-				break;
-		}
-	} else if (state == "active") {
-		switch (rnd) {
-			case 0:
-				fill(191, 54, 12);
-				break;
-			case 1:
-				fill(183, 28, 28);
-				break;
-			case 2:
-				fill(136, 14, 79);
-				break;
-			case 3:
-				fill(74, 20, 140);
-				break;
-			case 4:
-				fill(49, 27, 146);
-				break;
-			case 5:
-				fill(26, 35, 126);
-				break;
-			case 6:
-				fill(13, 71, 161);
-				break;
-			case 7:
-				fill(1, 87, 155);
-				break;
-			case 8:
-				fill(0, 96, 100);
-				break;
-			case 9:
-				fill(0, 77, 64);
-				break;
-			case 10:
-				fill(27, 94, 32);
-				break;
-			case 11:
-				fill(51, 105, 30);
-				break;
-			case 12:
-				fill(130, 119, 23);
-				break;
-			case 13:
-				fill(245, 127, 23);
-				break;
-			case 14:
-				fill(255, 111, 0);
-				break;
-			case 15:
-				fill(230, 81, 0);
-				break;
-		}
+function keyPressed() {
+	if (keyCode == 65 || keyCode == 97) {           // 'A' || 'a'
+		showActive = !showActive;
+	} else if (keyCode == 83 || keyCode == 115) {   // 'S' || 's'
+		showStack = !showStack;
 	}
 }

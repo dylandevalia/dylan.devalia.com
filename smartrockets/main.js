@@ -36,11 +36,11 @@ function draw() {
 	}
 	
 	/*Draw target*/
-	fill(244, 67, 54);
+	Color.Material.red[5].fill();
 	ellipse(target.x, target.y, 48, 48);
-	fill(255, 205, 210);
+	Color.Material.red[1].fill();
 	ellipse(target.x, target.y, 32, 32);
-	fill(244, 67, 54);
+	Color.Material.red[5].fill();
 	ellipse(target.x, target.y, 16, 16);
 	
 	/* Check if any rockets are still alive */

@@ -10,6 +10,8 @@ function Rocket(rocketWidth) {
 	this.acc = createVector();
 	this.dna = new DNA();
 	
+	this.width = rocketWidth;
+	
 	this.fitness = 0;
 	this.dead = 0;
 	this.completed = 0;
@@ -78,8 +80,8 @@ Rocket.prototype.show = function() {
 	push();
 	translate(this.pos.x, this.pos.y);
 	rotate(this.vel.heading() - PI / 2);    // Rotated 90* for some reason
-	fill(238, 238, 238, 100);
-	triangle(-rocketWidth / 2, 0, rocketWidth / 2, 0, 0, rocketWidth * 1.618);
+	Color.Material.blue_grey[0].fill(100);
+	triangle(-this.width / 2, 0, this.width / 2, 0, 0, this.width * 1.618);
 	pop();
 };
 

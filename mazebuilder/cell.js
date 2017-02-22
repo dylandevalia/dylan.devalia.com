@@ -11,26 +11,31 @@ function Cell(col, row) {
 	this.x = col * scl;
 	this.y = row * scl;
 	
-	this.active = false;
-	this.visited = false;
+	this.isActive = false;
+	this.beenVisited = false;
+	this.onStack = false;
 	
 	this.walls = [true, true, true, true];   // Top right bottom left
 }
 
 /**
  *  Renders the cell
- *  Grey if unvisited, base color if visited and dark color if currently active
+ *  Grey if unvisited, base color if beenVisited and dark color if currently isActive
  */
 Cell.prototype.show = function() {
-	if (this.active) {
-		noStroke();
-		fillColour("active");
-		rect(this.x, this.y, scl, scl);
-	} else if (this.visited) {
-		noStroke();
-		fillColour("visited");
-		rect(this.x, this.y, scl, scl);
+	noStroke();
+	if (this.isActive && showActive) {
+		// fillColour("isActive");
+		cellColor[8].fill();
+		// rect(this.x, this.y, scl, scl);
+	} else if (this.onStack && showStack) {
+		cellColor[3].fill();
+	} else if (this.beenVisited) {
+		cellColor[5].fill();
+	} else {
+		fill(66);
 	}
+	rect(this.x, this.y, scl, scl);
 	
 	stroke(33);
 	if (this.walls[GRID_TOP]) {
@@ -61,16 +66,16 @@ Cell.prototype.checkNeighbours = function() {
 	var bottom = grid[index(this.col, this.row + 1)];
 	var left = grid[index(this.col - 1, this.row)];
 	
-	if (top && !top.visited) {
+	if (top && !top.beenVisited) {
 		neighbours.push(top);
 	}
-	if (right && !right.visited) {
+	if (right && !right.beenVisited) {
 		neighbours.push(right);
 	}
-	if (bottom && !bottom.visited) {
+	if (bottom && !bottom.beenVisited) {
 		neighbours.push(bottom);
 	}
-	if (left && !left.visited) {
+	if (left && !left.beenVisited) {
 		neighbours.push(left);
 	}
 	

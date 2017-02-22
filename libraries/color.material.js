@@ -17,6 +17,14 @@ Color.prototype.fill = function(a) {
 	}
 };
 
+Color.prototype.stroke = function(a) {
+	if (a) {
+		stroke(this.r, this.g, this.b, a);
+	} else {
+		stroke(this.r, this.g, this.b, 255);
+	}
+};
+
 Color.Material = function() {
 	Color.Material.prototype = Color.prototype;
 };
@@ -286,11 +294,40 @@ Color.Material.fill = function(shade, alpha) {
 	Color.Material.all[color][shade].fill(alpha);
 };
 
-Color.Material.getRandom = function(shade) {
-	if (!shade || shade < 0 || shade > 10) {
-		shade = Math.floor(Math.random() * Color.Material.numberOfShades);
-	}
-	var color = Math.floor(Math.random() * Color.Material.all.length);
-	
-	return Color.Material.all[color][shade];
-}
+/**
+ *  Gets a random color from the material library
+ *
+ *  @returns {*}    A random material color
+ */
+Color.Material.getRandomColor = function() {
+	return Color.Material.all[Math.floor(Math.random() * Color.Material.all.length)];
+};
+
+/**
+ *  Gets a random color and returns a random shade
+ *
+ *  @returns {*}    A random shade from a random color
+ */
+Color.Material.getRandomShade = function() {
+	return Color.Material.getRandomColor()[Math.floor(Math.random() * Color.Material.numberOfShades)];
+};
+
+/**
+ *  Gets a random color and returns the given shade
+ *
+ *  @param shade    The shade of the color to return
+ *  @returns {*}    A random color's given shade
+ */
+Color.Material.getRandomColorOfShade = function(shade) {
+	return Color.Material.getRandomColor()[shade];
+};
+
+/**
+ *  Gets a random shade of the given color
+ *
+ *  @param color    The color which to pick a random shade
+ *  @returns {*}    The random shade of the given color
+ */
+Color.Material.getRandomShadeOfColor = function(color) {
+	return color[Math.floor(Math.random() * Color.Material.numberOfShades)];
+};

@@ -1,3 +1,5 @@
+var obstacleColor = Color.Material.getRandomColor();
+	
 /**
  *  Creates and obstacle which the ships crash into
  *
@@ -10,6 +12,7 @@ function Obstacle(pos, w, h, create) {
 	this.pos = pos;
 	this.w = w;
 	this.h = h;
+	
 	
 	if (create) {
 		this.create = create;
@@ -24,10 +27,10 @@ function Obstacle(pos, w, h, create) {
  */
 Obstacle.prototype.show = function() {
 	if (this.create) {
-		fill(144, 202, 249);
+		obstacleColor[2].fill();
 		rect(this.pos.x, this.pos.y, this.w, this.h);
 	} else {
-		fill(3, 169, 244);
+		obstacleColor[5].fill();
 		rect(
 			this.pos.x - this.w / 2, this.pos.y - this.h / 2,
 			this.w, this.h

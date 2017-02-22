@@ -7,6 +7,7 @@ function Star() {
 	this.pz = this.pos.z;
 	
 	this.maxSize = random(2, 15);
+	this.color = Color.Material.blue_grey[0];
 }
 
 Star.prototype.update = function() {
@@ -17,6 +18,13 @@ Star.prototype.update = function() {
 		this.pos.z = random(1, width);
 		
 		this.pz = this.pos.z;
+		
+		// 10% chance to have a colour
+		if (random(1) < 0.1) {
+			this.color = Color.Material.getRandomColorOfShade(5);
+		} else {
+			this.color = Color.Material.blue_grey[0];
+		}
 	}
 };
 
@@ -28,10 +36,11 @@ Star.prototype.show = function() {
 	var px = map(this.pos.x / this.pz, 0, 1, 0, width);
 	var py = map(this.pos.y / this.pz, 0, 1, 0, height);
 	
-	
-	stroke(238, 200);
-	fill(238, 200);
+	noStroke();
+	this.color.fill();
 	ellipse(sx, sy, r, r);
+	
+	this.color.stroke();
 	line(px, py, sx, sy);
 	
 	this.pz = this.pos.z;

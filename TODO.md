@@ -5,6 +5,7 @@
 - Asteroids - [coding train](https://youtu.be/hacZU523FyM)
 - Gravity Painter - [codepen](http://codepen.io/rachsmith/pen/VPqXJR?editors=0010)
 - Pong
+- Wave Water thing
 
 ##Website:
 - PHP stuff

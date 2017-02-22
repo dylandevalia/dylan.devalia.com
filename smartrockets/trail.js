@@ -32,7 +32,8 @@ Trail.prototype.update = function() {
 Trail.prototype.show = function() {
 	if (this.pos != null && this.iteration < 10) {
 		var size = this.iteration + 1;
-		this.getColour(this.iteration);
+		// this.getColour(this.iteration);
+		Color.Material.orange[map(this.iteration, 0, 10, 10, 0)].fill(map(this.iteration, 0, 5, 200, 20));
 		push();
 		translate(this.pos.x, this.pos.y);
 		quad(
