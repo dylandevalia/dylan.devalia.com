@@ -1,35 +1,48 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
-    <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
-    <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+
+    <!-- Scripts -->
+    <!------ Libraries -->
     <script language="javascript" type="text/javascript" src="../libraries/color.material.js"></script>
+    <script language="javascript" type="text/javascript" src="../libraries/sidebarButton.js"></script>
+    <!---------- p5.js -->
+    <script language="javascript" type="text/javascript" src="../libraries/p5.js"></script>
+    <script language="javascript" src="../libraries/p5.dom.js"></script>
+    <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+
+    <!------ Program -->
     <script language="javascript" type="text/javascript" src="trail.js"></script>
     <script language="javascript" type="text/javascript" src="dna.js"></script>
     <script language="javascript" type="text/javascript" src="rocket.js"></script>
     <script language="javascript" type="text/javascript" src="population.js"></script>
     <script language="javascript" type="text/javascript" src="obstacle.js"></script>
     <script language="javascript" type="text/javascript" src="main.js"></script>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-            background: #212121;
-            display: flex;
 
-            /* This centers our sketch horizontally. */
-            justify-content: center;
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/centreCanvas.css">
+    <link rel="stylesheet" href="../styles/menu.css">
 
-            /* This centers our sketch vertically. */
-            align-items: center;
-        }
-    </style>
     <title>Smart Rockets</title>
-    <script></script>
 </head>
 
 <body oncontextmenu="return false;">
 
+<!-- ---------------- -->
+<!-- Sliding side bar -->
+<!-- ---------------- -->
+<div id="sidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <p class="label">
+        First - (
+        <span id="sliderOneText"></span>
+        )
+    </p>
+    <input type="range" id="sliderOne" min="0" max="10" value="3" step="1" name="test">
+    <p class="label">Second</p>
+    <input type="range" id="" min="0" max="10" step="1" name="test" onseeking="">
+    <p class="label">Third</p>
+    <input type="range" id="third" min="0" max="10" step="1" name="test">
+</div>
 </body>
 </html>
