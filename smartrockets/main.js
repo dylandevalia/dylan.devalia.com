@@ -6,6 +6,20 @@ var obstacles = [];
 
 var moveTarget = false;
 
+var sidebarButton = new SidebarButton();
+
+/* Sliders */
+var slide, slideText;
+
+function preload() {
+	slide = document.getElementById("sliderOne");
+	slideText = document.getElementById("sliderOneText");
+	slideText.innerHTML = slide.value;
+	slide.oninput = function() {
+		slideText.innerHTML = this.value;
+	};
+}
+
 /**
  *  Creates canvas and objects
  */
@@ -62,13 +76,17 @@ function draw() {
 	/* Update rocket physics and draw */
 	population.updateDraw();
 	dnaCounter++;
+	
+	sidebarButton.draw();
 }
 
 var newObstacle;
 
 function mousePressed() {
 	if (mouseButton == LEFT) {
-		if (dist(mouseX, mouseY, target.x, target.y) < 24) {
+		if (sidebarButton.checkHit(mouseX, mouseY)) {
+			openNav();
+		} else if (dist(mouseX, mouseY, target.x, target.y) < 24) {
 			moveTarget = true;
 		} else {
 			for (var i = 0; i < obstacles.length; i++) {
