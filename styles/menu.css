@@ -1,16 +1,17 @@
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
+    width: 250px; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0;
-    left: 0;
+    left: -250px;
     background-color: #111; /* Black*/
     opacity: 0.70;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    font-size: 16px;
 }
 
 /* The navigation menu links */
@@ -50,10 +51,53 @@
 }
 
 /* Changes size of the input forms*/
-.sidenav input {
+.sidenav input[type=range] {
     width: 80%;
-    margin: 8px 0 8px 10%;
+    margin: 0 0 8px 10%;
     opacity: 1;
+}
+
+.sidenav input[type=text] {
+    width: 80px;
+    margin: auto 5px auto 5px;
+    padding: auto 5px auto 5px;
+    text-align: center;
+    color: #eeeeee;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #eeeeee;
+    -webkit-transition: border-bottom-color 0.2s ease-in-out;
+    -moz-transition: border-bottom-color 0.2s ease-in-out;
+    -o-transition: border-bottom-color 0.2s ease-in-out;
+    transition: border-bottom-color 0.2s ease-in-out;
+}
+
+.sidenav input[type=text]:focus {
+    border-bottom-color: #F44336;
+    outline: none;
+}
+
+.sidenav input[type=button] {
+    background-color: #333;
+    border: none;
+    color: #eeeeee;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 5px 5px 10%;
+    width: 80%;
+    outline: none;
+}
+
+.sidenav input[type=button]:hover {
+    background-color: #444;
+}
+
+.sidenav input[type=button]:active {
+    background-color: #222;
+    outline: none;
 }
 
 .sidenav .label {
