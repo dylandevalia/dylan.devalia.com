@@ -1,0 +1,106 @@
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 250px; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: -250px;
+    background-color: #111; /* Black*/
+    opacity: 0.70;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    font-size: 16px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    opacity: 1;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+/* Changes size of the input forms*/
+.sidenav input[type=range] {
+    width: 80%;
+    margin: 0 0 8px 10%;
+    opacity: 1;
+}
+
+.sidenav input[type=text] {
+    width: 80px;
+    margin: auto 5px auto 5px;
+    padding: auto 5px auto 5px;
+    text-align: center;
+    color: #eeeeee;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #eeeeee;
+    -webkit-transition: border-bottom-color 0.2s ease-in-out;
+    -moz-transition: border-bottom-color 0.2s ease-in-out;
+    -o-transition: border-bottom-color 0.2s ease-in-out;
+    transition: border-bottom-color 0.2s ease-in-out;
+}
+
+.sidenav input[type=text]:focus {
+    border-bottom-color: #F44336;
+    outline: none;
+}
+
+.sidenav input[type=button] {
+    background-color: #333;
+    border: none;
+    color: #eeeeee;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 5px 5px 10%;
+    width: 80%;
+    outline: none;
+}
+
+.sidenav input[type=button]:hover {
+    background-color: #444;
+}
+
+.sidenav input[type=button]:active {
+    background-color: #222;
+    outline: none;
+}
+
+.sidenav .label {
+    color: #eeeeee;
+    text-align: center;
+}
