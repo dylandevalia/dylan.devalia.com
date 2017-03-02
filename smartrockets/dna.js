@@ -9,7 +9,7 @@ function DNA(genes) {
 	} else {
 		this.genes = [];
 		for (var i = 0; i < lifespan; i++) {
-			this.genes[i] = p5.Vector.random2D().setMag(0.1);
+			this.genes[i] = p5.Vector.random2D();//.setMag(thrustStrength);
 		}
 	}
 }
@@ -33,7 +33,7 @@ DNA.prototype.crossBreed = function(partner) {
 					newGenes[i] = partner.genes[i];
 			}
 		} else {
-			newGenes[i] = p5.Vector.random2D().setMag(0.1);
+			newGenes[i] = p5.Vector.random2D();//.setMag(thrustStrength);
 		}
 	}
 	return new DNA(this.mutation(newGenes));
@@ -47,8 +47,8 @@ DNA.prototype.crossBreed = function(partner) {
  */
 DNA.prototype.mutation = function(genes) {
 	for (var i = 0; i < genes.length; i++) {
-		if (random(1) < 0.001) { // 0.01% to randomly mutate a new thrust
-			genes[i] = p5.Vector.random2D().setMag(0.1);
+		if (random(1) < mutationChance) {   // 0.01% to randomly mutate a new thrust
+			genes[i] = p5.Vector.random2D();//.setMag(thrustStrength);
 		}
 	}
 	return genes;

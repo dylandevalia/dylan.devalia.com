@@ -6,17 +6,83 @@ var obstacles = [];
 
 var moveTarget = false;
 
+var thrustStrength = 0.1;
+var mutationChance = 0.01;
+
 var sidebarButton = new SidebarButton();
 
-/* Sliders */
-var slide, slideText;
+/* Sliders & text boxes */
+var slide_population, text_population;
+var slide_thrust, text_thrust;
+var slide_mutation, text_mutation;
+/* Buttons */
+var btn_kill, btn_restart;
 
 function preload() {
-	slide = document.getElementById("sliderOne");
-	slideText = document.getElementById("sliderOneText");
-	slideText.innerHTML = slide.value;
-	slide.oninput = function() {
-		slideText.innerHTML = this.value;
+	/* Population */
+	slide_population = document.getElementById("slide_population");
+	text_population = document.getElementById("text_population");
+	text_population.value = slide_population.value;
+	
+	slide_population.oninput = function() {
+		text_population.value = this.value;
+		population = new Population(this.value);
+		dnaCounter = 0;
+	};
+	text_population.oninput = function() {
+		slide_population.value = this.value;
+		population = new Population(this.value);
+		dnaCounter = 0;
+	};
+	
+	/* Thrust strength */
+	slide_thrust = document.getElementById("slide_thrust");
+	text_thrust = document.getElementById("text_thrust");
+	text_thrust.value = slide_thrust.value;
+	
+	slide_thrust.oninput = function() {
+		text_thrust.value = this.value;
+		thrustStrength = this.value;
+		// population.rockets.forEach(function(rocket) {
+		// 	rocket.dna.genes.forEach(function(gene) {
+		// 		gene.setMag(text_thrust.value);
+		// 	})
+		// })
+	};
+	text_thrust.oninput = function() {
+		slide_thrust.value = this.value;
+		thrustStrength = this.value;
+		// population.rockets.forEach(function(rocket) {
+		// 	rocket.dna.genes.forEach(function(gene) {
+		// 		gene.setMag(text_thrust.value);
+		// 	})
+		// })
+	};
+	
+	/* Mutation Chance*/
+	slide_mutation = document.getElementById("slide_mutation");
+	text_mutation = document.getElementById("text_mutation");
+	text_mutation.value = slide_mutation.value;
+	
+	slide_mutation.oninput = function() {
+		text_mutation.value = this.value;
+		mutationChance = this.value;
+	};
+	text_mutation.oninput = function() {
+		slide_mutation.value = this.value;
+		mutationChance = this.value;
+	};
+	
+	/* Kill rockets */
+	btn_kill = document.getElementById("btn_kill");
+	btn_kill.onclick = function() {
+		newGeneration();
+	};
+	
+	/* Restart */
+	btn_restart = document.getElementById("btn_restart");
+	btn_restart.onclick = function() {
+		population = new Population(text_population.value);
 	};
 }
 
@@ -27,11 +93,9 @@ function setup() {
 	createCanvas(innerWidth, innerHeight);
 	
 	population = new Population(50);
+	
 	target = createVector(width / 2, height * 0.1); // Middle and 10% down
-	// obstacle = createVector(width / 2, height / 2);
 	obstacles.push(new Obstacle(createVector(width / 2, height / 2), width / 3, height * 0.05));
-	// oWidth = width / 3;
-	// oHeight = 20;
 }
 
 /**
@@ -68,9 +132,7 @@ function draw() {
 	
 	/* If all rockets are dead or have reached lifespan generate new genes */
 	if (allFinished || lifespan == dnaCounter) {
-		population.evalFitness();
-		population.naturalSelection();
-		dnaCounter = 0;
+		newGeneration();
 	}
 	
 	/* Update rocket physics and draw */
@@ -80,8 +142,13 @@ function draw() {
 	sidebarButton.draw();
 }
 
-var newObstacle;
+function newGeneration() {
+	population.evalFitness();
+	population.naturalSelection();
+	dnaCounter = 0;
+}
 
+var newObstacle;
 function mousePressed() {
 	if (mouseButton == LEFT) {
 		if (sidebarButton.checkHit(mouseX, mouseY)) {

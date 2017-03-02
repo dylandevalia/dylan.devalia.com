@@ -62,7 +62,7 @@ Rocket.prototype.update = function() {
 	} else if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) { // Out of bounds
 		this.dead = 1;
 	} else if (!this.dead && !this.completed) {
-		this.applyForce(this.dna.genes[dnaCounter]);
+		this.applyForce(this.dna.genes[dnaCounter].setMag(thrustStrength));
 		
 		this.vel.add(this.acc);
 		this.pos.add(this.vel);
