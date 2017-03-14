@@ -28,7 +28,6 @@ function setup() {
 	current = grid[0];
 	current.beenVisited = true;
 	current.isActive = true;
-	rnd = floor(random(16));
 }
 
 function draw() {
