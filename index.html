@@ -1,28 +1,28 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Dylan Devalia</title>
-    <link rel="stylesheet" href="styles/stylesheet.css">
-    <link rel="stylesheet" href="styles/linkHover.css">
-    <link rel="stylesheet" href="styles/menu.css">
-    <script>
+	<meta charset="UTF-8">
+	<title>Dylan Devalia</title>
+	<link rel="stylesheet" href="styles/stylesheet.css">
+	<link rel="stylesheet" href="styles/linkHover.css">
+	<link rel="stylesheet" href="styles/menu.css">
+	<script>
 		var isNavOpen = false;
 		function toggleNav() {
-            /* If nav is open, close nav else open nav */
+			/* If nav is open, close nav else open nav */
 			isNavOpen ? closeNav() : openNav();
 			isNavOpen = !isNavOpen;
 		}
-
-        /* Set the width of the side navigation to 250px */
+		
+		/* Set the width of the side navigation to 250px */
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "250px";
 		}
-
-        /* Set the width of the side navigation to 0 */
+		
+		/* Set the width of the side navigation to 0 */
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
-    </script>
+	</script>
 </head>
 
 <body>
@@ -32,12 +32,12 @@
 <!-- ---------------- -->
 
 <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-    <input type="range" min="0" max="10" step="1" name="test">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href="#">About</a>
+	<a href="#">Services</a>
+	<a href="#">Clients</a>
+	<a href="#">Contact</a>
+	<input type="range" min="0" max="10" step="1" name="test">
 </div>
 
 <!-- ---------------- -->
@@ -48,41 +48,41 @@
     <span onclick="toggleNav()">
         <h1> p5.js Experiments </h1>
     </span>
-    <div class="hovereffect">
-        <img class="img-responsive" src="resources/icons/snake.jpg" alt="Snake Game Icon">
-        <div class="overlay">
-            <h2>snakegame.js</h2>
-            <a class="info" href="snake/">Play</a>
-        </div>
-    </div>
-    <div class="hovereffect">
-        <img class="img-responsive" src="resources/icons/smartRocket.jpg" alt="Smart Rocket Icon">
-        <div class="overlay">
-            <h2>smartrockets.js</h2>
-            <a class="info" href="smartrockets/">Play</a>
-        </div>
-    </div>
-    <div class="hovereffect">
-        <img class="img-responsive" src="resources/icons/starfield.jpg" alt="Starfield Icon">
-        <div class="overlay">
-            <h2>starfield.js</h2>
-            <a class="info" href="starfield/">Play</a>
-        </div>
-    </div>
-    <div class="hovereffect">
-        <img class="img-responsive" src="resources/icons/mazebuilder.jpg" alt="Maze Builder Icon">
-        <div class="overlay">
-            <h2>mazebuilder.js</h2>
-            <a class="info" href="mazebuilder/">Play</a>
-        </div>
-    </div>
-    <div class="hovereffect">
-        <img class="img-responsive" src="resources/icons/snake.jpg" alt="Steering Text Icon">
-        <div class="overlay">
-            <h2>steeringtext.js</h2>
-            <a class="info" href="steeringtext/">Play</a>
-        </div>
-    </div>
+	<div class="hovereffect">
+		<img class="img-responsive" src="resources/icons/snake.jpg" alt="Snake Game Icon">
+		<div class="overlay">
+			<h2>snakegame.js</h2>
+			<a class="info" href="snake/">Play</a>
+		</div>
+	</div>
+	<div class="hovereffect">
+		<img class="img-responsive" src="resources/icons/smartRocket.jpg" alt="Smart Rocket Icon">
+		<div class="overlay">
+			<h2>smartrockets.js</h2>
+			<a class="info" href="smartrockets/">Play</a>
+		</div>
+	</div>
+	<div class="hovereffect">
+		<img class="img-responsive" src="resources/icons/starfield.jpg" alt="Starfield Icon">
+		<div class="overlay">
+			<h2>starfield.js</h2>
+			<a class="info" href="starfield/">Play</a>
+		</div>
+	</div>
+	<div class="hovereffect">
+		<img class="img-responsive" src="resources/icons/mazebuilder.jpg" alt="Maze Builder Icon">
+		<div class="overlay">
+			<h2>mazebuilder.js</h2>
+			<a class="info" href="mazebuilder/">Play</a>
+		</div>
+	</div>
+	<div class="hovereffect">
+		<img class="img-responsive" src="resources/icons/snake.jpg" alt="Steering Text Icon">
+		<div class="overlay">
+			<h2>steeringtext.js</h2>
+			<a class="info" href="steeringtext/">Play</a>
+		</div>
+	</div>
 </div>
 </body>
 </html>

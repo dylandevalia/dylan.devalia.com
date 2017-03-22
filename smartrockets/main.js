@@ -24,12 +24,12 @@ function preload() {
 	text_population = document.getElementById("text_population");
 	text_population.value = slide_population.value;
 	
-	slide_population.oninput = function() {
+	slide_population.oninput = function () {
 		text_population.value = this.value;
 		population = new Population(this.value);
 		dnaCounter = 0;
 	};
-	text_population.oninput = function() {
+	text_population.oninput = function () {
 		slide_population.value = this.value;
 		population = new Population(this.value);
 		dnaCounter = 0;
@@ -40,7 +40,7 @@ function preload() {
 	text_thrust = document.getElementById("text_thrust");
 	text_thrust.value = slide_thrust.value;
 	
-	slide_thrust.oninput = function() {
+	slide_thrust.oninput = function () {
 		text_thrust.value = this.value;
 		thrustStrength = this.value;
 		// population.rockets.forEach(function(rocket) {
@@ -49,7 +49,7 @@ function preload() {
 		// 	})
 		// })
 	};
-	text_thrust.oninput = function() {
+	text_thrust.oninput = function () {
 		slide_thrust.value = this.value;
 		thrustStrength = this.value;
 		// population.rockets.forEach(function(rocket) {
@@ -64,24 +64,24 @@ function preload() {
 	text_mutation = document.getElementById("text_mutation");
 	text_mutation.value = slide_mutation.value;
 	
-	slide_mutation.oninput = function() {
+	slide_mutation.oninput = function () {
 		text_mutation.value = this.value;
 		mutationChance = this.value;
 	};
-	text_mutation.oninput = function() {
+	text_mutation.oninput = function () {
 		slide_mutation.value = this.value;
 		mutationChance = this.value;
 	};
 	
 	/* Kill rockets */
 	btn_kill = document.getElementById("btn_kill");
-	btn_kill.onclick = function() {
+	btn_kill.onclick = function () {
 		newGeneration();
 	};
 	
 	/* Restart */
 	btn_restart = document.getElementById("btn_restart");
-	btn_restart.onclick = function() {
+	btn_restart.onclick = function () {
 		population = new Population(text_population.value);
 	};
 }

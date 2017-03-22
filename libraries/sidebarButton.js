@@ -5,7 +5,7 @@ function SidebarButton() {
 	this.h = 50;
 }
 
-SidebarButton.prototype.draw = function() {
+SidebarButton.prototype.draw = function () {
 	if (!isNavOpen) {
 		Color.Material.blue_grey[5].fill();
 		rect(this.x, this.y, this.w, this.h, 5, 10, 15, 10);
@@ -18,7 +18,7 @@ SidebarButton.prototype.draw = function() {
 	}
 };
 
-SidebarButton.prototype.checkHit = function(x, y) {
+SidebarButton.prototype.checkHit = function (x, y) {
 	return (x > this.x && x < this.x + this.w) && (y > this.y && y < this.y + this.h);
 };
 

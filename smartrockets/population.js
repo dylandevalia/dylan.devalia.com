@@ -17,7 +17,7 @@ function Population(size) {
 /**
  *  Updates the physics and draws rockets
  */
-Population.prototype.updateDraw = function() {
+Population.prototype.updateDraw = function () {
 	for (var i = 0; i < this.rockets.length; i++) {
 		this.rockets[i].update();
 		this.rockets[i].show();
@@ -28,7 +28,7 @@ Population.prototype.updateDraw = function() {
  *  Normalises all rockets' fitness and puts them in a mating pool
  *  The more successful the rocket, the more times they are in the pool
  */
-Population.prototype.evalFitness = function() {
+Population.prototype.evalFitness = function () {
 	/* Gets max fitness value for normalisation */
 	var maxFit = 0;
 	for (var i = 0; i < this.rockets.length; i++) {
@@ -52,7 +52,7 @@ Population.prototype.evalFitness = function() {
  *  Selects random parents from mating pool and creates a child
  *  Generates new rockets with child DNA
  */
-Population.prototype.naturalSelection = function() {
+Population.prototype.naturalSelection = function () {
 	for (var i = 0; i < this.rockets.length; i++) {
 		var mother = random(this.matingPool);
 		var father = random(this.matingPool);   // Come at me tumblr

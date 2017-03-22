@@ -22,7 +22,7 @@ function Cell(col, row) {
  *  Renders the cell
  *  Grey if unvisited, base color if beenVisited and dark color if currently isActive
  */
-Cell.prototype.show = function() {
+Cell.prototype.show = function () {
 	noStroke();
 	if (this.isActive && showActive) {
 		// fillColour("isActive");
@@ -58,7 +58,7 @@ Cell.prototype.show = function() {
  *
  *  @returns {Cell/*}   A randomly chosen neighbour which is unvisited || null
  */
-Cell.prototype.checkNeighbours = function() {
+Cell.prototype.checkNeighbours = function () {
 	var neighbours = [];
 	
 	var top = grid[index(this.col, this.row - 1)];

@@ -10,7 +10,7 @@ function Trail() {
  *  Sets the position of the particle
  *  @param _pos Position of the particle
  */
-Trail.prototype.setPos = function(_pos) {
+Trail.prototype.setPos = function (_pos) {
 	this.pos = _pos;
 	this.iteration = 0;
 };
@@ -18,7 +18,7 @@ Trail.prototype.setPos = function(_pos) {
 /**
  *  Updates the particle every 5 ticks
  */
-Trail.prototype.update = function() {
+Trail.prototype.update = function () {
 	if (this.pos != null) {
 		if (frameCount % 5 == 0) {
 			this.iteration++;
@@ -29,7 +29,7 @@ Trail.prototype.update = function() {
 /**
  *  Draws the particle
  */
-Trail.prototype.show = function() {
+Trail.prototype.show = function () {
 	if (this.pos != null && this.iteration < 10) {
 		var size = this.iteration + 1;
 		// this.getColour(this.iteration);
@@ -51,7 +51,7 @@ Trail.prototype.show = function() {
  *
  *  @param i    Life-stage of the particle
  */
-Trail.prototype.getColour = function(i) {
+Trail.prototype.getColour = function (i) {
 	var alpha = map(i, 0, 5, 200, 20);
 	switch (i) {
 		case 0:

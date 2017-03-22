@@ -20,7 +20,7 @@ function DNA(genes) {
  *  @param partner  The other DNA strand to cross breed with
  *  @returns {DNA}  The final crossbred DNA
  */
-DNA.prototype.crossBreed = function(partner) {
+DNA.prototype.crossBreed = function (partner) {
 	var newGenes = [];
 	for (var i = 0; i < lifespan; i++) {
 		if (i < this.genes.length - 1) {
@@ -45,7 +45,7 @@ DNA.prototype.crossBreed = function(partner) {
  *  @param genes    The genes to be mutated
  *  @returns {*}    The mutated genes
  */
-DNA.prototype.mutation = function(genes) {
+DNA.prototype.mutation = function (genes) {
 	for (var i = 0; i < genes.length; i++) {
 		if (random(1) < mutationChance) {   // 0.01% to randomly mutate a new thrust
 			genes[i] = p5.Vector.random2D();//.setMag(thrustStrength);

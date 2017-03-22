@@ -1,5 +1,5 @@
 var obstacleColor = Color.Material.getRandomColor();
-	
+
 /**
  *  Creates and obstacle which the ships crash into
  *
@@ -25,7 +25,7 @@ function Obstacle(pos, w, h, create) {
 /**
  *  Renders the object to the canvas
  */
-Obstacle.prototype.show = function() {
+Obstacle.prototype.show = function () {
 	if (this.create) {
 		obstacleColor[2].fill();
 		rect(this.pos.x, this.pos.y, this.w, this.h);
@@ -44,7 +44,7 @@ Obstacle.prototype.show = function() {
  *
  *  @returns {Obstacle/*}   Pointer to the finished obstacle object || null
  */
-Obstacle.prototype.finish = function() {
+Obstacle.prototype.finish = function () {
 	var o;
 	if (abs(this.w) > 10 && abs(this.h) > 10) {
 		o = new Obstacle(
@@ -66,7 +66,7 @@ Obstacle.prototype.finish = function() {
  *  @param entityY      The y position of the object to check against the obstacle
  *  @returns {boolean}  True if the objects intersect else false
  */
-Obstacle.prototype.hit = function(entityX, entityY) {
+Obstacle.prototype.hit = function (entityX, entityY) {
 	return (entityX > this.pos.x - this.w / 2) &&
 		(entityX < this.pos.x + this.w / 2) &&
 		(entityY > this.pos.y - this.h / 2) &&

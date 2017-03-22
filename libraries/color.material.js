@@ -9,7 +9,7 @@ function Color(r, g, b, a) {
 	}
 }
 
-Color.prototype.fill = function(a) {
+Color.prototype.fill = function (a) {
 	if (a) {
 		fill(this.r, this.g, this.b, a);
 	} else {
@@ -17,7 +17,7 @@ Color.prototype.fill = function(a) {
 	}
 };
 
-Color.prototype.stroke = function(a) {
+Color.prototype.stroke = function (a) {
 	if (a) {
 		stroke(this.r, this.g, this.b, a);
 	} else {
@@ -25,7 +25,7 @@ Color.prototype.stroke = function(a) {
 	}
 };
 
-Color.Material = function() {
+Color.Material = function () {
 	Color.Material.prototype = Color.prototype;
 };
 
@@ -282,7 +282,7 @@ Color.Material.all = [
 	Color.Material.blue_grey
 ];
 
-Color.Material.fill = function(shade, alpha) {
+Color.Material.fill = function (shade, alpha) {
 	if (!shade || shade < 0 || shade > 10) {
 		shade = Math.floor(Math.random() * Color.Material.numberOfShades);
 	}
@@ -299,7 +299,7 @@ Color.Material.fill = function(shade, alpha) {
  *
  *  @returns {*}    A random material color
  */
-Color.Material.getRandomColor = function() {
+Color.Material.getRandomColor = function () {
 	return Color.Material.all[Math.floor(Math.random() * Color.Material.all.length)];
 };
 
@@ -308,7 +308,7 @@ Color.Material.getRandomColor = function() {
  *
  *  @returns {*}    A random shade from a random color
  */
-Color.Material.getRandomShade = function() {
+Color.Material.getRandomShade = function () {
 	return Color.Material.getRandomColor()[Math.floor(Math.random() * Color.Material.numberOfShades)];
 };
 
@@ -318,7 +318,7 @@ Color.Material.getRandomShade = function() {
  *  @param shade    The shade of the color to return
  *  @returns {*}    A random color's given shade
  */
-Color.Material.getRandomColorOfShade = function(shade) {
+Color.Material.getRandomColorOfShade = function (shade) {
 	return Color.Material.getRandomColor()[shade];
 };
 
@@ -328,6 +328,6 @@ Color.Material.getRandomColorOfShade = function(shade) {
  *  @param color    The color which to pick a random shade
  *  @returns {*}    The random shade of the given color
  */
-Color.Material.getRandomShadeOfColor = function(color) {
+Color.Material.getRandomShadeOfColor = function (color) {
 	return color[Math.floor(Math.random() * Color.Material.numberOfShades)];
 };

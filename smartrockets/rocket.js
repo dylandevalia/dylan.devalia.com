@@ -31,7 +31,7 @@ function Rocket(rocketWidth) {
  *
  *  @param force    The force to be exerted on the rocket
  */
-Rocket.prototype.applyForce = function(force) {
+Rocket.prototype.applyForce = function (force) {
 	this.acc.add(force);
 };
 
@@ -39,7 +39,7 @@ Rocket.prototype.applyForce = function(force) {
  *  Updates the rocket physics and its trail
  *  Also determines if it is alive and completed its goal (you pass butter)
  */
-Rocket.prototype.update = function() {
+Rocket.prototype.update = function () {
 	if (!this.dead && !this.completed &&
 		frameCount % this.trailDelay == 0
 	) {
@@ -74,7 +74,7 @@ Rocket.prototype.update = function() {
 /**
  *  Shows trails and itself
  */
-Rocket.prototype.show = function() {
+Rocket.prototype.show = function () {
 	this.showTrail();
 	
 	push();
@@ -88,7 +88,7 @@ Rocket.prototype.show = function() {
 /**
  *  Shows all the trails
  */
-Rocket.prototype.showTrail = function() {
+Rocket.prototype.showTrail = function () {
 	for (var i = 0; i < this.trails.length; i++) {
 		this.trails[i].update();
 		this.trails[i].show();
@@ -99,7 +99,7 @@ Rocket.prototype.showTrail = function() {
  *  Calculates the rocket's fitness using its final distance between itself and the target
  *  Fitness is reduced if it died and increased if it made it to the target (quicker the better)
  */
-Rocket.prototype.calcFitness = function() {
+Rocket.prototype.calcFitness = function () {
 	var d = dist(this.pos.x, this.pos.y, target.x, target.y);
 	this.fitness = 1 / (d + 1);
 	if (this.dead) {
@@ -114,7 +114,7 @@ Rocket.prototype.calcFitness = function() {
  *
  *  @param newDna   The rockets new DNA
  */
-Rocket.prototype.newGeneration = function(newDna) {
+Rocket.prototype.newGeneration = function (newDna) {
 	this.dna = newDna;
 	this.pos.x = width / 2;
 	this.pos.y = height;
