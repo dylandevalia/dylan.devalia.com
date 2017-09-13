@@ -1,7 +1,7 @@
 .hovereffect {
     width: 350px;
     height: 200px;
-    float: left;
+    /*float: left;*/
     overflow: hidden;
     position: relative;
     text-align: center;
@@ -86,6 +86,6 @@
     border: 1px solid #eee;
     -webkit-transition-delay: .2s;
     transition-delay: .2s;
-    margin: 20px 0 0 0;
+    margin: 5px 0 0 0;
     padding: 35px 125px;
 }

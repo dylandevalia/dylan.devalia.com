@@ -1,0 +1,245 @@
+* {
+    margin: auto;
+    padding: auto;
+}
+
+body {
+    color: #444;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 18px;
+    line-height: 1.6;
+
+    margin: 40px auto;
+    max-width: 1100px;
+    /*max-width: 1080px;*/
+    padding: 0 10px;
+
+    background-image: none !important;
+    background: #FF5722;
+    -webkit-animation: backgroundRainbow 120s ease-in-out infinite;
+    -moz-animation: backgroundRainbow 120s ease-in-out infinite;
+    -o-animation: backgroundRainbow 120s ease-in-out infinite;
+    animation: backgroundRainbow 120s ease-in-out infinite;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    opacity: 0.55;
+    padding-bottom: 10px;
+}
+
+@-webkit-keyframes backgroundRainbow {
+    0% {
+        background-color: #FF5722;
+    }
+    6.25% {
+        background-color: #F44336;
+    }
+    12.5% {
+        background-color: #E91E63;
+    }
+    18.75% {
+        background-color: #9C27B0;
+    }
+    25% {
+        background-color: #673AB7;
+    }
+    31.25% {
+        background-color: #3F51B5;
+    }
+    37.5% {
+        background-color: #2196F3;
+    }
+    43.75% {
+        background-color: #03A9F4;
+    }
+    50% {
+        background-color: #00BCD4;
+    }
+    56.25% {
+        background-color: #009688;
+    }
+    62.5% {
+        background-color: #4CAF50;
+    }
+    68.75% {
+        background-color: #8BC34A;
+    }
+    75% {
+        background-color: #CDDC39;
+    }
+    81.25% {
+        background-color: #FFEB3B;
+    }
+    87.5% {
+        background-color: #FFC107;
+    }
+    93.75% {
+        background-color: #FF9800;
+    }
+    100% {
+        background-color: #FF5722;
+    }
+}
+
+@-moz-keyframes backgroundRainbow {
+    0% {
+        background-color: #FF5722;
+    }
+    6.25% {
+        background-color: #F44336;
+    }
+    12.5% {
+        background-color: #E91E63;
+    }
+    18.75% {
+        background-color: #9C27B0;
+    }
+    25% {
+        background-color: #673AB7;
+    }
+    31.25% {
+        background-color: #3F51B5;
+    }
+    37.5% {
+        background-color: #2196F3;
+    }
+    43.75% {
+        background-color: #03A9F4;
+    }
+    50% {
+        background-color: #00BCD4;
+    }
+    56.25% {
+        background-color: #009688;
+    }
+    62.5% {
+        background-color: #4CAF50;
+    }
+    68.75% {
+        background-color: #8BC34A;
+    }
+    75% {
+        background-color: #CDDC39;
+    }
+    81.25% {
+        background-color: #FFEB3B;
+    }
+    87.5% {
+        background-color: #FFC107;
+    }
+    93.75% {
+        background-color: #FF9800;
+    }
+    100% {
+        background-color: #FF5722;
+    }
+}
+
+@-o-keyframes backgroundRainbow {
+    0% {
+        background-color: #FF5722;
+    }
+    6.25% {
+        background-color: #F44336;
+    }
+    12.5% {
+        background-color: #E91E63;
+    }
+    18.75% {
+        background-color: #9C27B0;
+    }
+    25% {
+        background-color: #673AB7;
+    }
+    31.25% {
+        background-color: #3F51B5;
+    }
+    37.5% {
+        background-color: #2196F3;
+    }
+    43.75% {
+        background-color: #03A9F4;
+    }
+    50% {
+        background-color: #00BCD4;
+    }
+    56.25% {
+        background-color: #009688;
+    }
+    62.5% {
+        background-color: #4CAF50;
+    }
+    68.75% {
+        background-color: #8BC34A;
+    }
+    75% {
+        background-color: #CDDC39;
+    }
+    81.25% {
+        background-color: #FFEB3B;
+    }
+    87.5% {
+        background-color: #FFC107;
+    }
+    93.75% {
+        background-color: #FF9800;
+    }
+    100% {
+        background-color: #FF5722;
+    }
+}
+
+@keyframes backgroundRainbow {
+    0% {
+        background-color: #FF5722;
+    }
+    6.25% {
+        background-color: #F44336;
+    }
+    12.5% {
+        background-color: #E91E63;
+    }
+    18.75% {
+        background-color: #9C27B0;
+    }
+    25% {
+        background-color: #673AB7;
+    }
+    31.25% {
+        background-color: #3F51B5;
+    }
+    37.5% {
+        background-color: #2196F3;
+    }
+    43.75% {
+        background-color: #03A9F4;
+    }
+    50% {
+        background-color: #00BCD4;
+    }
+    56.25% {
+        background-color: #009688;
+    }
+    62.5% {
+        background-color: #4CAF50;
+    }
+    68.75% {
+        background-color: #8BC34A;
+    }
+    75% {
+        background-color: #CDDC39;
+    }
+    81.25% {
+        background-color: #FFEB3B;
+    }
+    87.5% {
+        background-color: #FFC107;
+    }
+    93.75% {
+        background-color: #FF9800;
+    }
+    100% {
+        background-color: #FF5722;
+    }
+}

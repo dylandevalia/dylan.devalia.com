@@ -9,7 +9,7 @@ function Snake() {
 /**
  *  Updates the snake's position
  */
-Snake.prototype.update = function () {
+Snake.prototype.update = function() {
 	/* Shuffles snake's history/tail */
 	if (this.length === this.tail.length) { // Only if not eaten food
 		for (var i = 0; i < this.tail.length - 1; i++) {
@@ -30,7 +30,7 @@ Snake.prototype.update = function () {
 /**
  *  Displays the snake's head and its tail
  */
-Snake.prototype.show = function () {
+Snake.prototype.show = function() {
 	/* Display tail */
 	fill(139, 195, 74);
 	for (var i = 0; i < this.tail.length; i++) {
@@ -47,7 +47,7 @@ Snake.prototype.show = function () {
  *  @param x    Set x-axis direction
  *  @param y    Set y-axis direction
  */
-Snake.prototype.dir = function (x, y) {
+Snake.prototype.dir = function(x, y) {
 	this.dirBuffer.push(createVector(x, y));
 };
 
@@ -55,7 +55,7 @@ Snake.prototype.dir = function (x, y) {
  *  Checks with food pellet if it has eaten it
  *  @param food The pellet object
  */
-Snake.prototype.eat = function (food) {
+Snake.prototype.eat = function(food) {
 	var d = dist(food.pos.x, food.pos.y, this.pos.x, this.pos.y);
 	if (d < 1) {
 		food.eaten(this);
@@ -69,7 +69,7 @@ Snake.prototype.eat = function (food) {
 /**
  *  Checks if it has collided with its own tail, this is dead
  */
-Snake.prototype.death = function () {
+Snake.prototype.death = function() {
 	var d;
 	for (var i = 0; i < this.tail.length; i++) {
 		d = dist(this.pos.x, this.pos.y, this.tail[i].x, this.tail[i].y);
