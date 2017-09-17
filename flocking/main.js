@@ -61,7 +61,7 @@ function preload() {
 	btn_adv = document.getElementById("btn_adv");
 	btn_adv.onclick = function() {
 		toggleAdv();
-	}
+	};
 
 	/* Separtation radius */
 	label_sepDist = document.getElementById("label_sepDist");
@@ -172,7 +172,7 @@ function preload() {
 	btn_reset = document.getElementById("btn_reset");
 	btn_reset.onclick = function() {
 		resetVals();
-	}
+	};
 
 	toggleAdv();
 }
@@ -280,7 +280,7 @@ function newFlock(noBirds) {
 }
 
 function keyPressed() {
-	if (keyCode == CONTROL) {
+	if (keyCode === CONTROL) {
 		toggleNav();
 	}
 }

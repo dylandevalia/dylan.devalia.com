@@ -33,7 +33,7 @@ Cell.prototype.draw = function() {
 			fill(255, 0, 0);
 	}
 	rect(this.col * scl, this.row * scl, scl, scl);
-}
+};
 
 Cell.prototype.incrementState = function(bool) {
 	if (bool) { // Cycle from 0 to 1
@@ -43,4 +43,4 @@ Cell.prototype.incrementState = function(bool) {
 	}
 	//this.state = (++this.state > 4) ? 0 : this.state;
 	//loop();
-}
+};

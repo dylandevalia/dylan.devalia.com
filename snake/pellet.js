@@ -28,9 +28,8 @@ Pellet.prototype.show = function() {
 
 /**
  *  Seclects a new position if it has been eaten
- *  @param snake
  */
-Pellet.prototype.eaten = function(snake) {
+Pellet.prototype.eaten = function() {
 	/* Move to new position */
 	this.pos.x = floor(random(w)) * scl;
 	this.pos.y = floor(random(h)) * scl;

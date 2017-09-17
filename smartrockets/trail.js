@@ -19,8 +19,8 @@ Trail.prototype.setPos = function (_pos) {
  *  Updates the particle every 5 ticks
  */
 Trail.prototype.update = function () {
-	if (this.pos != null) {
-		if (frameCount % 5 == 0) {
+	if (this.pos !== null) {
+		if (frameCount % 5 === 0) {
 			this.iteration++;
 		}
 	}
@@ -30,7 +30,7 @@ Trail.prototype.update = function () {
  *  Draws the particle
  */
 Trail.prototype.show = function () {
-	if (this.pos != null && this.iteration < 10) {
+	if (this.pos !== null && this.iteration < 10) {
 		var size = this.iteration + 1;
 		// this.getColour(this.iteration);
 		Color.Material.orange[map(this.iteration, 0, 10, 10, 0)].fill(map(this.iteration, 0, 5, 200, 20));

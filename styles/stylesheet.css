@@ -35,27 +35,43 @@ h1, h2, h3 {
 }
 
 @-webkit-keyframes backgroundRainbow {
-    0%{background-position:0% 0%}
+    0% {
+        background-position: 0 0
+    }
     50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
+    100% {
+        background-position: 0 0
+    }
 }
 
 @-moz-keyframes backgroundRainbow {
-    0%{background-position:0% 0%}
+    0% {
+        background-position: 0 0
+    }
     50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
+    100% {
+        background-position: 0 0
+    }
 }
 
 @-o-keyframes backgroundRainbow {
-    0%{background-position:0% 0%}
+    0% {
+        background-position: 0 0
+    }
     50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
+    100% {
+        background-position: 0 0
+    }
 }
 
 @keyframes backgroundRainbow {
-    0%{background-position:0% 0%}
+    0% {
+        background-position: 0 0
+    }
     50%{background-position:100% 100%}
-    100%{background-position:0% 0%}
+    100% {
+        background-position: 0 0
+    }
 }
 
 /* -------------- */

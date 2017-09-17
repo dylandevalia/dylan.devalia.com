@@ -131,7 +131,7 @@ function draw() {
 	}
 	
 	/* If all rockets are dead or have reached lifespan generate new genes */
-	if (allFinished || lifespan == dnaCounter) {
+	if (allFinished || lifespan === dnaCounter) {
 		newGeneration();
 	}
 	
@@ -150,7 +150,7 @@ function newGeneration() {
 
 var newObstacle;
 function mousePressed() {
-	if (mouseButton == LEFT) {
+	if (mouseButton === LEFT) {
 		if (sidebarButton.checkHit(mouseX, mouseY)) {
 			openNav();
 		} else if (dist(mouseX, mouseY, target.x, target.y) < 24) {
@@ -163,9 +163,9 @@ function mousePressed() {
 				}
 			}
 		}
-	} else if (mouseButton == RIGHT) {
+	} else if (mouseButton === RIGHT) {
 		newObstacle = new Obstacle(createVector(mouseX, mouseY), 10, 10, true);
-	} else if (mouseButton == CENTER) {
+	} else if (mouseButton === CENTER) {
 		for (var i = 0; i < obstacles.length; i++) {
 			if (obstacles[i].hit(mouseX, mouseY)) {
 				obstacles.splice(i, 1);
@@ -176,7 +176,7 @@ function mousePressed() {
 }
 
 function mouseDragged() {
-	if (mouseButton == LEFT) {
+	if (mouseButton === LEFT) {
 		if (moveTarget) {
 			target.x = mouseX;
 			target.y = mouseY;
@@ -187,19 +187,19 @@ function mouseDragged() {
 				obstacles[i].pos.y = mouseY;
 			}
 		}
-	} else if (mouseButton == RIGHT) {
+	} else if (mouseButton === RIGHT) {
 		newObstacle.w = mouseX - newObstacle.pos.x;
 		newObstacle.h = mouseY - newObstacle.pos.y;
 	}
 }
 
 function mouseReleased() {
-	if (mouseButton == LEFT) {
+	if (mouseButton === LEFT) {
 		moveTarget = false;
 		for (var i = 0; i < obstacles.length; i++) {
 			obstacles[i].move = false;
 		}
-	} else if (mouseButton == RIGHT) {
+	} else if (mouseButton === RIGHT) {
 		var o = newObstacle.finish();
 		if (o) {
 			obstacles.push(o);

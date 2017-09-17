@@ -63,18 +63,18 @@ function removeWalls(a, b) {
 	var dcol = a.col - b.col;
 	var drow = a.row - b.row;
 	
-	if (dcol == 1) {
+	if (dcol === 1) {
 		a.walls[GRID_RIGHT] = false;
 		b.walls[GRID_LEFT] = false;
-	} else if (dcol == -1) {
+	} else if (dcol === -1) {
 		a.walls[GRID_LEFT] = false;
 		b.walls[GRID_RIGHT] = false;
 	}
 	
-	if (drow == 1) {
+	if (drow === 1) {
 		a.walls[GRID_TOP] = false;
 		b.walls[GRID_BOTTOM] = false;
-	} else if (drow == -1) {
+	} else if (drow === -1) {
 		a.walls[GRID_BOTTOM] = false;
 		b.walls[GRID_TOP] = false;
 	}
@@ -89,9 +89,9 @@ function index(i, j) {
 }
 
 function keyPressed() {
-	if (keyCode == 65 || keyCode == 97) {           // 'A' || 'a'
+	if (keyCode === 65 || keyCode === 97) {           // 'A' || 'a'
 		showActive = !showActive;
-	} else if (keyCode == 83 || keyCode == 115) {   // 'S' || 's'
+	} else if (keyCode === 83 || keyCode === 115) {   // 'S' || 's'
 		showStack = !showStack;
 	}
 }

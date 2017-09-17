@@ -1,6 +1,6 @@
 function Asteroid() {
 	this.pos = createVector(random(width), random(height));
-	this.vel = createVector(0, 0) // p5.Vector.random2D();
+	this.vel = createVector(0, 0); // p5.Vector.random2D();
 	this.r = random(30, 90);
 	var mag = map(this.r, 30, 90, 3, 1);
 	this.vel.setMag(mag);
@@ -49,4 +49,4 @@ Asteroid.prototype.wrapEdges = function() {
 	} else if (this.pos.y > height + maxR) {
 		this.pos.y -= (height + 2 * maxR);
 	}
-}
+};

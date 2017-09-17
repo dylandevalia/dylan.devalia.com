@@ -25,7 +25,7 @@ function draw() {
 	for (var row = 0; row < rows; row++) {
 		for (var col = 0; col < cols; col++) {
 			grid[row][col].draw();
-			if (state_play && frameCount % 10 == 0) {
+			if (state_play && frameCount % 10 === 0) {
 				grid[row][col].update();
 			}
 		}
@@ -45,7 +45,7 @@ function draw() {
 }
 
 function mousePressed() {
-	if (mouseButton == LEFT) {
+	if (mouseButton === LEFT) {
 		var row = floor(mouseY / scl);
 		var col = floor(mouseX / scl);
 		
@@ -56,7 +56,7 @@ function mousePressed() {
 }
 
 function keyPressed() {
-	if (keyCode == 32) {
+	if (keyCode === 32) {
 		state_play = !state_play;
 	}
 }

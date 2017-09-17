@@ -20,9 +20,9 @@ function draw() {
 		stars[i].show();
 	}
 	
-	if (decelerate && frameCount % 10 == 0) {
+	if (decelerate && frameCount % 10 === 0) {
 		speed -= 10;
-		if (speed == 10) {
+		if (speed === 10) {
 			speed = 10;
 			decelerate = false;
 		}
@@ -30,9 +30,9 @@ function draw() {
 }
 
 function mousePressed() {
-	if (mouseButton == LEFT) {
+	if (mouseButton === LEFT) {
 		speed += 10;
-	} else if (mouseButton == RIGHT) {
+	} else if (mouseButton === RIGHT) {
 		decelerate = true;
 		targetSpeed -= floor(speed / 3);
 		tmpSpeed = speed;

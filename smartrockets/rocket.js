@@ -41,7 +41,7 @@ Rocket.prototype.applyForce = function (force) {
  */
 Rocket.prototype.update = function () {
 	if (!this.dead && !this.completed &&
-		frameCount % this.trailDelay == 0
+		frameCount % this.trailDelay === 0
 	) {
 		this.trails[this.trailCount].setPos(this.pos.copy());
 		this.trails[this.trailCount++].iteration = 0;

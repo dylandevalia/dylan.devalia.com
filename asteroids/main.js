@@ -37,42 +37,40 @@ function draw() {
 				return;
 			}
 		}
-	};
+	}
 	ship.draw();
 }
 
 
 function isOnScreen(pos) {
-	if (pos.x > 0 && pos.x < width && pos.y > 0 && pos.y < height) {
-		return true;
-	}
-	return false;
+	return pos.x > 0 && pos.x < width && pos.y > 0 && pos.y < height;
+	
 }
 
 function keyPressed() {
-	if (keyCode == RIGHT_ARROW) {
+	if (keyCode === RIGHT_ARROW) {
 		ship.turn(0.1);
-	} else if (keyCode == LEFT_ARROW) {
+	} else if (keyCode === LEFT_ARROW) {
 		ship.turn(-0.1);
-	} else if (keyCode == UP_ARROW) {
+	} else if (keyCode === UP_ARROW) {
 		ship.boost(true);
-	} else if (keyCode == DOWN_ARROW) {
+	} else if (keyCode === DOWN_ARROW) {
 		ship.slow(true);
-	} else if (keyCode == 32) {
+	} else if (keyCode === 32) {
 		// lasers.push(new Laser());
 	}
 }
 
 function keyReleased() {
-	if (keyCode == RIGHT_ARROW || keyCode == LEFT_ARROW) {
+	if (keyCode === RIGHT_ARROW || keyCode === LEFT_ARROW) {
 		ship.turn(0);
 	}
-
-	if (keyCode == UP_ARROW) {
+	
+	if (keyCode === UP_ARROW) {
 		ship.boost(false);
 	}
-
-	if (keyCode == DOWN_ARROW) {
+	
+	if (keyCode === DOWN_ARROW) {
 		ship.slow(false);
 	}
 }

@@ -36,11 +36,11 @@ function draw() {
 	background(66);
 	strokeWeight(0);
 	
-	if (state == "PLAY") {
+	if (state === "PLAY") {
 		state_play();
-	} else if (state == "DEATH") {
+	} else if (state === "DEATH") {
 		state_dead();
-	} else if (state == "WIN") {
+	} else if (state === "WIN") {
 		state_won();
 	}
 }
@@ -49,7 +49,7 @@ function draw() {
  *  Runs the game
  */
 function state_play() {
-	if (frameCount % counter == 0) {
+	if (frameCount % counter === 0) {
 		/* Update and show snake */
 		snake.update();
 		snake.death();

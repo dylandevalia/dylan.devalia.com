@@ -120,28 +120,28 @@ Ship.prototype.checkIntersect = function(target) {
 
 	/* Check collision */
 	// Vectors
-	v0 = pointC.sub(pointA);
-	v1 = pointB.sub(pointA);
-	v2 = target.sub(pointA);
+	var v0 = pointC.sub(pointA);
+	var v1 = pointB.sub(pointA);
+	var v2 = target.sub(pointA);
 
 	// Dot products
-	var dot00 = p5.Vector.dot(v0, v0)
-	var dot01 = p5.Vector.dot(v0, v1)
-	var dot02 = p5.Vector.dot(v0, v2)
-	var dot11 = p5.Vector.dot(v1, v1)
-	var dot12 = p5.Vector.dot(v1, v2)
+	var dot00 = p5.Vector.dot(v0, v0);
+	var dot01 = p5.Vector.dot(v0, v1);
+	var dot02 = p5.Vector.dot(v0, v2);
+	var dot11 = p5.Vector.dot(v1, v1);
+	var dot12 = p5.Vector.dot(v1, v2);
 
 	// Compute barycentric coordinates
-	var invDenom = 1 / (dot00 * dot11 - dot01 * dot01)
-	u = (dot11 * dot02 - dot01 * dot12) * invDenom
-	v = (dot00 * dot12 - dot01 * dot02) * invDenom
+	var invDenom = 1 / (dot00 * dot11 - dot01 * dot01);
+	var u = (dot11 * dot02 - dot01 * dot12) * invDenom;
+	var v = (dot00 * dot12 - dot01 * dot02) * invDenom;
 
 	// Check if point is in triangle
 	// print(u);
 	// print(v);
 	// print("---");
 	return (u >= 0) && (v >= 0) && (u + v < 1);
-}
+};
 
 Ship.prototype.wrapEdges = function() {
 	if (this.pos.x < -width) {
@@ -167,4 +167,4 @@ Ship.prototype.turn = function(angle) {
 
 Ship.prototype.slow = function(slow) {
 	this.slowing = slow;
-}
+};

@@ -30,7 +30,7 @@ Cell.prototype.update = function () {
 			// print(noAlive);
 		}
 	} else {
-		if (noAlive == 3) {
+		if (noAlive === 3) {
 			this.toLive = true;
 			// print(row + " " + col + ": live");
 			// print(noAlive);
@@ -44,12 +44,12 @@ Cell.prototype.neighboursAlive = function () {
 	/* for 3x3 area around cell */
 	for (var row = this.row - 1; row <= this.row + 1; row++) {
 		for (var col = this.col - 1; col <= this.col + 1; col++) {
-			if (this.row == 1 && this.col == 1) {
+			if (this.row === 1 && this.col === 1) {
 				// print(row + " " + col);
 			}
 			
 			/* Not this cell */
-			if (!(row == this.row && col == this.col)) {
+			if (!(row === this.row && col === this.col)) {
 				/* Catch out of bounds */
 				if (!(row < 0 || row > rows - 1 || col < 0 || col > cols - 1)) {
 					// print(row + " " + col);

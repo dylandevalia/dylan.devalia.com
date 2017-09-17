@@ -5020,8 +5020,8 @@
 			 */
 			
 			!function (name, context, definition) {
-				if (typeof module != 'undefined' && module.exports) module.exports = definition()
-				else if (typeof define == 'function' && define.amd) define(definition)
+				if (typeof module != 'undefined' && module.exports) module.exports = definition();
+				else if (typeof define == 'function' && define.amd) define(definition);
 				else context[name] = definition()
 			}('reqwest', this, function () {
 				
@@ -5065,7 +5065,7 @@
 					, xhr = function (o) {
 					// is it x-domain
 					if (o['crossOrigin'] === true) {
-						var xhr = win[xmlHttpRequest] ? new XMLHttpRequest() : null
+						var xhr = win[xmlHttpRequest] ? new XMLHttpRequest() : null;
 						if (xhr && 'withCredentials' in xhr) {
 							return xhr
 						} else if (win[xDomainRequest]) {
@@ -5083,7 +5083,7 @@
 					dataFilter: function (data) {
 						return data
 					}
-				}
+				};
 				
 				function succeed(r) {
 					var protocol = protocolRe.exec(r.url);
@@ -5095,11 +5095,11 @@
 					return function () {
 						// use _aborted to mitigate against IE err c00c023f
 						// (can't read props on aborted request objects)
-						if (r._aborted) return error(r.request)
-						if (r._timedOut) return error(r.request, 'Request is aborted: timeout')
+						if (r._aborted) return error(r.request);
+						if (r._timedOut) return error(r.request, 'Request is aborted: timeout');
 						if (r.request && r.request[readyState] == 4) {
-							r.request.onreadystatechange = noop
-							if (succeed(r)) success(r.request)
+							r.request.onreadystatechange = noop;
+							if (succeed(r)) success(r.request);
 							else
 								error(r.request)
 						}
@@ -5108,16 +5108,16 @@
 				
 				function setHeaders(http, o) {
 					var headers = o['headers'] || {}
-						, h
+						, h;
 					
 					headers['Accept'] = headers['Accept']
 						|| defaultHeaders['accept'][o['type']]
-						|| defaultHeaders['accept']['*']
+						|| defaultHeaders['accept']['*'];
 					
 					var isAFormData = typeof FormData === 'function' && (o['data'] instanceof FormData);
 					// breaks cross-origin requests with legacy browsers
-					if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
-					if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
+					if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith'];
+					if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType'];
 					for (h in headers)
 						headers.hasOwnProperty(h) && 'setRequestHeader' in http && http.setRequestHeader(h, headers[h])
 				}
@@ -5144,7 +5144,7 @@
 						, match = url.match(cbreg)
 						, script = doc.createElement('script')
 						, loaded = 0
-						, isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1
+						, isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1;
 					
 					if (match) {
 						if (match[3] === '?') {
@@ -5156,11 +5156,11 @@
 						url = urlappend(url, cbkey + '=' + cbval) // no callback details, add 'em
 					}
 					
-					win[cbval] = generalCallback
+					win[cbval] = generalCallback;
 					
-					script.type = 'text/javascript'
-					script.src = url
-					script.async = true
+					script.type = 'text/javascript';
+					script.src = url;
+					script.async = true;
 					if (typeof script.onreadystatechange !== 'undefined' && !isIE10) {
 						// need this for IE due to out-of-order onreadystatechange(), binding script
 						// execution to an event listener gives us control over when the script
@@ -5172,25 +5172,25 @@
 						if ((script[readyState] && script[readyState] !== 'complete' && script[readyState] !== 'loaded') || loaded) {
 							return false
 						}
-						script.onload = script.onreadystatechange = null
-						script.onclick && script.onclick()
+						script.onload = script.onreadystatechange = null;
+						script.onclick && script.onclick();
 						// Call the user callback with the last value stored and clean up values and scripts.
-						fn(lastValue)
-						lastValue = undefined
-						head.removeChild(script)
+						fn(lastValue);
+						lastValue = undefined;
+						head.removeChild(script);
 						loaded = 1
-					}
+					};
 					
 					// Add the script to the DOM head
-					head.appendChild(script)
+					head.appendChild(script);
 					
 					// Enable JSONP timeout
 					return {
 						abort: function () {
-							script.onload = script.onreadystatechange = null
-							err({}, 'Request is aborted: timeout', {})
-							lastValue = undefined
-							head.removeChild(script)
+							script.onload = script.onreadystatechange = null;
+							err({}, 'Request is aborted: timeout', {});
+							lastValue = undefined;
+							head.removeChild(script);
 							loaded = 1
 						}
 					}
@@ -5205,36 +5205,36 @@
 							? reqwest.toQueryString(o['data'])
 							: (o['data'] || null)
 						, http
-						, sendWait = false
+						, sendWait = false;
 					
 					// if we're working on a GET request and we have data then we should append
 					// query string to end of URL and not post data
 					if ((o['type'] == 'jsonp' || method == 'GET') && data) {
-						url = urlappend(url, data)
+						url = urlappend(url, data);
 						data = null
 					}
 					
-					if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url)
+					if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url);
 					
 					// get the xhr from the factory if passed
 					// if the factory returns null, fall-back to ours
-					http = (o.xhr && o.xhr(o)) || xhr(o)
+					http = (o.xhr && o.xhr(o)) || xhr(o);
 					
-					http.open(method, url, o['async'] === false ? false : true)
-					setHeaders(http, o)
-					setCredentials(http, o)
+					http.open(method, url, o['async'] === false ? false : true);
+					setHeaders(http, o);
+					setCredentials(http, o);
 					if (win[xDomainRequest] && http instanceof win[xDomainRequest]) {
-						http.onload = fn
-						http.onerror = err
+						http.onload = fn;
+						http.onerror = err;
 						// NOTE: see
 						// http://social.msdn.microsoft.com/Forums/en-US/iewebdevelopment/thread/30ef3add-767c-4436-b8a9-f1ca19b4812e
 						http.onprogress = function () {
-						}
+						};
 						sendWait = true
 					} else {
 						http.onreadystatechange = handleReadyState(this, fn, err)
 					}
-					o['before'] && o['before'](http)
+					o['before'] && o['before'](http);
 					if (sendWait) {
 						setTimeout(function () {
 							http.send(data)
@@ -5246,43 +5246,43 @@
 				}
 				
 				function Reqwest(o, fn) {
-					this.o = o
-					this.fn = fn
+					this.o = o;
+					this.fn = fn;
 					
 					init.apply(this, arguments)
 				}
 				
 				function setType(header) {
 					// json, javascript, text/plain, text/html, xml
-					if (header.match('json')) return 'json'
-					if (header.match('javascript')) return 'js'
-					if (header.match('text')) return 'html'
+					if (header.match('json')) return 'json';
+					if (header.match('javascript')) return 'js';
+					if (header.match('text')) return 'html';
 					if (header.match('xml')) return 'xml'
 				}
 				
 				function init(o, fn) {
 					
-					this.url = typeof o == 'string' ? o : o['url']
-					this.timeout = null
+					this.url = typeof o == 'string' ? o : o['url'];
+					this.timeout = null;
 					
 					// whether request has been fulfilled for purpose
 					// of tracking the Promises
-					this._fulfilled = false
+					this._fulfilled = false;
 					// success handlers
 					this._successHandler = function () {
-					}
-					this._fulfillmentHandlers = []
+					};
+					this._fulfillmentHandlers = [];
 					// error handlers
-					this._errorHandlers = []
+					this._errorHandlers = [];
 					// complete (both success and fail) handlers
-					this._completeHandlers = []
-					this._erred = false
-					this._responseArgs = {}
+					this._completeHandlers = [];
+					this._erred = false;
+					this._responseArgs = {};
 					
-					var self = this
+					var self = this;
 					
 					fn = fn || function () {
-						}
+						};
 					
 					if (o['timeout']) {
 						this.timeout = setTimeout(function () {
@@ -5309,19 +5309,19 @@
 					}
 					
 					function complete(resp) {
-						o['timeout'] && clearTimeout(self.timeout)
-						self.timeout = null
+						o['timeout'] && clearTimeout(self.timeout);
+						self.timeout = null;
 						while (self._completeHandlers.length > 0) {
 							self._completeHandlers.shift()(resp)
 						}
 					}
 					
 					function success(resp) {
-						var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')) // resp can be undefined in IE
-						resp = (type !== 'jsonp') ? self.request : resp
+						var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')); // resp can be undefined in IE
+						resp = (type !== 'jsonp') ? self.request : resp;
 						// use global data filter on response text
 						var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
-							, r = filteredResponse
+							, r = filteredResponse;
 						try {
 							resp.responseText = r
 						} catch (e) {
@@ -5335,28 +5335,28 @@
 									} catch (err) {
 										return error(resp, 'Could not parse JSON in response', err)
 									}
-									break
+									break;
 								case 'js':
-									resp = eval(r)
-									break
+									resp = eval(r);
+									break;
 								case 'html':
-									resp = r
-									break
+									resp = r;
+									break;
 								case 'xml':
 									resp = resp.responseXML
 									&& resp.responseXML.parseError // IE trololo
 									&& resp.responseXML.parseError.errorCode
 									&& resp.responseXML.parseError.reason
 										? null
-										: resp.responseXML
+										: resp.responseXML;
 									break
 							}
 						}
 						
-						self._responseArgs.resp = resp
-						self._fulfilled = true
-						fn(resp)
-						self._successHandler(resp)
+						self._responseArgs.resp = resp;
+						self._fulfilled = true;
+						fn(resp);
+						self._successHandler(resp);
 						while (self._fulfillmentHandlers.length > 0) {
 							resp = self._fulfillmentHandlers.shift()(resp)
 						}
@@ -5365,16 +5365,16 @@
 					}
 					
 					function timedOut() {
-						self._timedOut = true
+						self._timedOut = true;
 						self.request.abort()
 					}
 					
 					function error(resp, msg, t) {
-						resp = self.request
-						self._responseArgs.resp = resp
-						self._responseArgs.msg = msg
-						self._responseArgs.t = t
-						self._erred = true
+						resp = self.request;
+						self._responseArgs.resp = resp;
+						self._responseArgs.msg = msg;
+						self._responseArgs.t = t;
+						self._erred = true;
 						while (self._errorHandlers.length > 0) {
 							self._errorHandlers.shift()(resp, msg, t)
 						}
@@ -5386,7 +5386,7 @@
 				
 				Reqwest.prototype = {
 					abort: function () {
-						this._aborted = true
+						this._aborted = true;
 						this.request.abort()
 					}
 					
@@ -5404,15 +5404,15 @@
 					 */
 					, then: function (success, fail) {
 						success = success || function () {
-							}
+							};
 						fail = fail || function () {
-							}
+							};
 						if (this._fulfilled) {
 							this._responseArgs.resp = success(this._responseArgs.resp)
 						} else if (this._erred) {
 							fail(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
 						} else {
-							this._fulfillmentHandlers.push(success)
+							this._fulfillmentHandlers.push(success);
 							this._errorHandlers.push(fail)
 						}
 						return this
@@ -5444,7 +5444,7 @@
 					, 'catch': function (fn) {
 						return this.fail(fn)
 					}
-				}
+				};
 				
 				function reqwest(o, fn) {
 					return new Reqwest(o, fn)
@@ -5464,25 +5464,25 @@
 						if (o && !o['disabled'])
 							cb(n, normalize(o['attributes']['value'] && o['attributes']['value']['specified'] ? o['value'] : o['text']))
 					}
-						, ch, ra, val, i
+						, ch, ra, val, i;
 					
 					// don't serialize elements that are disabled or without a name
-					if (el.disabled || !n) return
+					if (el.disabled || !n) return;
 					
 					switch (t) {
 						case 'input':
 							if (!/reset|button|image|file/i.test(el.type)) {
-								ch = /checkbox/i.test(el.type)
-								ra = /radio/i.test(el.type)
+								ch = /checkbox/i.test(el.type);
+								ra = /radio/i.test(el.type);
 								val = el.value
 								// WebKit gives us "" instead of "on" if a checkbox has no value, so correct it here
 								;
 								(!(ch || ra) || el.checked) && cb(n, normalize(ch && val === '' ? 'on' : val))
 							}
-							break
+							break;
 						case 'textarea':
-							cb(n, normalize(el.value))
-							break
+							cb(n, normalize(el.value));
+							break;
 						case 'select':
 							if (el.type.toLowerCase() === 'select-one') {
 								optCb(el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null)
@@ -5502,16 +5502,16 @@
 					var cb = this
 						, e, i
 						, serializeSubtags = function (e, tags) {
-						var i, j, fa
+						var i, j, fa;
 						for (i = 0; i < tags.length; i++) {
-							fa = e[byTag](tags[i])
+							fa = e[byTag](tags[i]);
 							for (j = 0; j < fa.length; j++) serial(fa[j], cb)
 						}
-					}
+					};
 					
 					for (i = 0; i < arguments.length; i++) {
-						e = arguments[i]
-						if (/input|select|textarea/i.test(e.tagName)) serial(e, cb)
+						e = arguments[i];
+						if (/input|select|textarea/i.test(e.tagName)) serial(e, cb);
 						serializeSubtags(e, ['input', 'select', 'textarea'])
 					}
 				}
@@ -5523,40 +5523,40 @@
 				
 				// { 'name': 'value', ... } style serialization
 				function serializeHash() {
-					var hash = {}
+					var hash = {};
 					eachFormElement.apply(function (name, value) {
 						if (name in hash) {
-							hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]])
+							hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]]);
 							hash[name].push(value)
 						} else hash[name] = value
-					}, arguments)
+					}, arguments);
 					return hash
 				}
 				
 				// [ { name: 'name', value: 'value' }, ... ] style serialization
 				reqwest.serializeArray = function () {
-					var arr = []
+					var arr = [];
 					eachFormElement.apply(function (name, value) {
 						arr.push({name: name, value: value})
-					}, arguments)
+					}, arguments);
 					return arr
-				}
+				};
 				
 				reqwest.serialize = function () {
-					if (arguments.length === 0) return ''
+					if (arguments.length === 0) return '';
 					var opt, fn
-						, args = Array.prototype.slice.call(arguments, 0)
+						, args = Array.prototype.slice.call(arguments, 0);
 					
-					opt = args.pop()
-					opt && opt.nodeType && args.push(opt) && (opt = null)
-					opt && (opt = opt.type)
+					opt = args.pop();
+					opt && opt.nodeType && args.push(opt) && (opt = null);
+					opt && (opt = opt.type);
 					
-					if (opt == 'map') fn = serializeHash
-					else if (opt == 'array') fn = reqwest.serializeArray
-					else fn = serializeQueryString
+					if (opt == 'map') fn = serializeHash;
+					else if (opt == 'array') fn = reqwest.serializeArray;
+					else fn = serializeQueryString;
 					
 					return fn.apply(null, args)
-				}
+				};
 				
 				reqwest.toQueryString = function (o, trad) {
 					var prefix, i
@@ -5565,9 +5565,9 @@
 						, enc = encodeURIComponent
 						, add = function (key, value) {
 						// If value is a function, invoke it and return its value
-						value = ('function' === typeof value) ? value() : (value == null ? '' : value)
+						value = ('function' === typeof value) ? value() : (value == null ? '' : value);
 						s[s.length] = enc(key) + '=' + enc(value)
-					}
+					};
 					// If an array was passed in, assume that it is an array of form elements.
 					if (isArray(o)) {
 						for (i = 0; o && i < o.length; i++) add(o[i]['name'], o[i]['value'])
@@ -5581,16 +5581,16 @@
 					
 					// spaces should be + according to spec
 					return s.join('&').replace(/%20/g, '+')
-				}
+				};
 				
 				function buildParams(prefix, obj, traditional, add) {
 					var name, i, v
-						, rbracket = /\[\]$/
+						, rbracket = /\[\]$/;
 					
 					if (isArray(obj)) {
 						// Serialize array item.
 						for (i = 0; obj && i < obj.length; i++) {
-							v = obj[i]
+							v = obj[i];
 							if (traditional || rbracket.test(prefix)) {
 								// Treat each array item as a scalar.
 								add(prefix, v)
@@ -5612,26 +5612,26 @@
 				
 				reqwest.getcallbackPrefix = function () {
 					return callbackPrefix
-				}
+				};
 				
 				// jQuery and Zepto compatibility, differences can be remapped here so you can call
 				// .ajax.compat(options, callback)
 				reqwest.compat = function (o, fn) {
 					if (o) {
-						o['type'] && (o['method'] = o['type']) && delete o['type']
-						o['dataType'] && (o['type'] = o['dataType'])
-						o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback']
+						o['type'] && (o['method'] = o['type']) && delete o['type'];
+						o['dataType'] && (o['type'] = o['dataType']);
+						o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback'];
 						o['jsonp'] && (o['jsonpCallback'] = o['jsonp'])
 					}
 					return new Reqwest(o, fn)
-				}
+				};
 				
 				reqwest.ajaxSetup = function (options) {
-					options = options || {}
+					options = options || {};
 					for (var k in options) {
 						globalSetupOptions[k] = options[k]
 					}
-				}
+				};
 				
 				return reqwest
 			});

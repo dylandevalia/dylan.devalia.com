@@ -77,4 +77,4 @@ Snake.prototype.death = function() {
 			state = "DEATH";
 		}
 	}
-}
+};

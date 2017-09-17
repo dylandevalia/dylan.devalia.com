@@ -63,7 +63,7 @@ Bird.prototype.applyForce = function(force) {
 	// f = ma => a = f / m
 	// Assuming mass = 1 for all
 	this.acc.add(force);
-}
+};
 
 // Seeking algorithm - steers towards given target
 Bird.prototype.seek = function(target) {
@@ -75,7 +75,7 @@ Bird.prototype.seek = function(target) {
 	// Calculate actual steering force and limit to maxForce
 	var steer = desired.sub(this.vel);
 	return steer.limit(maxForce);
-}
+};
 
 var sepDist = 25;
 // Separates the bird from other birds to avoid crowding

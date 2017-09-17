@@ -9,7 +9,7 @@ function setup() {
 	createCanvas(cols * scl, rows * scl);
 
 	for (var c = 0; c < cols; c++) {
-		grid[c] = []
+		grid[c] = [];
 		for (var r = 0; r < rows; r++) {
 			grid[c][r] = new Cell(c, r);
 		}
@@ -30,5 +30,5 @@ function draw() {
 }
 
 function mouseClicked() {
-	grid[floor(mouseX / scl)][floor(mouseY / scl)].incrementState((keyIsDown(CONTROL) || mouseButton == RIGHT));
+	grid[floor(mouseX / scl)][floor(mouseY / scl)].incrementState((keyIsDown(CONTROL) || mouseButton === RIGHT));
 }
