@@ -1,4 +1,4 @@
-# [dylan.devalia.com](dylan.devalia.com)
+# [dylan.devalia.com](http://dylan.devalia.com/)
 
 My website. Currently building small p5.js experiments
 
