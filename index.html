@@ -1,75 +1,65 @@
+<!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" media="screen" href="stylesheet.min.css"/>
+	<script defer src="./index.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC:700">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<title>Dylan Devalia</title>
-	<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300" rel="stylesheet">
-	<link rel="stylesheet" href="styles/stylesheet.css">
-	<link rel="stylesheet" href="styles/linkHover.css">
-	<link rel="stylesheet" href="styles/sidenav.css">
-
-	<script language="javascript" type="text/javascript" src="libraries/sidenav.js"></script>
 </head>
 
-<body id="body">
+<body>
 
-<!-- ---------------- -->
-<!-- Sliding side bar -->
-<!-- ---------------- -->
-
-<div id="sidenav" class="sidenav">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<a href="#">About</a>
-	<a href="#">Services</a>
-	<a href="#">Clients</a>
-	<a href="#">Contact</a>
-	<input type="range" min="0" max="10" step="1" name="test">
+<div id="background">
+	<canvas id="canvas" width=100% height=100%></canvas>
 </div>
 
-<!-- ---------------- -->
-<!-- p5js experiments -->
-<!-- ---------------- -->
+<div id="center-container">
+	<h3 id="main-text">DYLAN DEVALIA</h3>
+</div>
 
-<div id="main" class="wrapper">
-	<div class="title">
-        <h1> p5.js Experiments </h1>
+<div id="footer">
+	<a href="#" id="about-button" class="footer-content expand">
+		<p>about</p>
+	</a>
+	<p class="footer-content">|</p>
+	<a href="#" id="contact-button" class="footer-content expand">
+		<p>contact</p>
+	</a>
+	<p class="footer-content">|</p>
+	<a href="#" id="cv-button" class="footer-content expand">
+		<p>cv</p>
+	</a>
+</div>
+
+<div id="about" class="extras">
+	<div class="extras-content">
+		<p>Hey there!</p>
+		<p>
+			My name is <em>Dylan Devalia</em> and I just graduate from the <em>University of Nottingham</em>
+			for <em>Computer Science</em> with <em>first-class honours</em>
+		</p>
 	</div>
-	<div class="js-programs">
-		<div class="hovereffect">
-			<img class="img-responsive" src="resources/icons/snake.jpg" alt="Snake Game Icon">
-			<div class="overlay">
-				<h2>snakegame.js</h2>
-				<a class="info" href="snake/">Play</a>
-			</div>
-		</div>
-		<div class="hovereffect">
-			<img class="img-responsive" src="resources/icons/smartRocket.jpg" alt="Smart Rocket Icon">
-			<div class="overlay">
-				<h2>smartrockets.js</h2>
-				<a class="info" href="smartrockets/">Play</a>
-			</div>
-		</div>
-		<div class="hovereffect">
-			<img class="img-responsive" src="resources/icons/starfield.jpg" alt="Starfield Icon">
-			<div class="overlay">
-				<h2>starfield.js</h2>
-				<a class="info" href="starfield/">Play</a>
-			</div>
-		</div>
-		<div class="hovereffect">
-			<img class="img-responsive" src="resources/icons/mazebuilder.jpg" alt="Maze Builder Icon">
-			<div class="overlay">
-				<h2>mazebuilder.js</h2>
-				<a class="info" href="mazebuilder/">Play</a>
-			</div>
-		</div>
-		<div class="hovereffect">
-			<img class="img-responsive" src="resources/icons/flocking.jpg" alt="Flocking Icon">
-			<div class="overlay">
-				<h2>flocking.js</h2>
-				<a class="info" href="flocking/">Play</a>
-			</div>
-		</div>
+</div>
+
+<div id="contact" class="extras">
+	<div class="extras-content">
+		<p>email: <a class="underline" target="_blank" href="mailto:dylan@devalia.com">dylan@devalia.com</a></p>
+		<p>github: <a class="underline" target="_blank" href="https://github.com/dylandevalia">dylandevalia</a></p>
+	</div>
+</div>
+
+<div id="cv" class="extras">
+	<div class="extras-content">
+		<p>email: dylan@devalia.com</p>
+		<p>email: dylan@devalia.com</p>
+		<p>email: dylan@devalia.com</p>
 	</div>
 </div>
 </body>
+
 </html>
