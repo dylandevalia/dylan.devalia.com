@@ -88,7 +88,7 @@ function showExtra(a) {
 
 let clicked = false;
 
-function hideExtra(a) {
+function hideExtra() {
 	if (clicked === true) {
 		currentExtra.classList.remove('shown');
 		currentExtra.classList.add('hidden');
