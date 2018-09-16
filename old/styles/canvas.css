@@ -1,0 +1,13 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #212121;
+	display: flex;
+	font-family: 'Source Code Pro', monospace;
+	
+	/* This centers the sketch horizontally. */
+	justify-content: center;
+	
+	/* This centers the sketch vertically. */
+	align-items: center;
+}
