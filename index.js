@@ -157,7 +157,6 @@ function redraw() {
 function resizeCanvas() {
 	canvas.height = window.innerHeight * .99;
 	canvas.width = bg.clientWidth;
-	redraw();
 }
 
 let colors = [
