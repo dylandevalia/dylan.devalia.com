@@ -46,6 +46,9 @@ function wiggle(a) {
 	const f = getRandom(-0.25, 0.25);
 	const g = getRandom(-0.25, 0.25);
 	
+	const h = getRandom(0.04, 0.06);
+	const i = getRandom(0.04, 0.06);
+
 	a.style.transform =
 		'translate(' + b + 'px,' + c + 'px)' +
 		' rotate(' + d + 'deg)' +
@@ -57,12 +60,14 @@ function wiggle(a) {
 		' rotate(' + d + 'deg)' +
 		' skew(' + f + 'deg,' + g + 'deg)' +
 		' scale(' + e + ')';
-	
+
 	a.style.WebkitTransform =
 		'translate(' + b + 'px,' + c + 'px)' +
 		' rotate(' + d + 'deg)' +
 		' skew(' + f + 'deg,' + g + 'deg)' +
 		' scale(' + e + ')';
+
+	a.style['text-shadow'] = `${h}em ${i}em 0 rgb(0 0 0 / 0.5)`;
 }
 
 let currentExtra;
